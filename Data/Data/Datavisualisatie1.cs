@@ -23,5 +23,10 @@ namespace Data
             Form1 mainMenu = new Form1();
             mainMenu.Show();
         }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+
+        }
     }
 }
