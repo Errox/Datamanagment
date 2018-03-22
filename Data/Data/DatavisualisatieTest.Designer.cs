@@ -1,6 +1,6 @@
 ﻿namespace Data
 {
-    partial class Datavisualisatie1
+    partial class Datavisualisatie3
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Datavisualisatie1));
-            this.myButton = new System.Windows.Forms.Button();
-            this.WFDChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Datavisualisatie3));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.button1 = new System.Windows.Forms.Button();
             this.WGSmaand = new System.Windows.Forms.GroupBox();
             this.WGSdec = new System.Windows.Forms.CheckBox();
             this.WGSnov = new System.Windows.Forms.CheckBox();
@@ -51,45 +50,20 @@
             this.WGSjan = new System.Windows.Forms.CheckBox();
             this.WGSinleiding = new System.Windows.Forms.TextBox();
             this.WGStitel = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.WFDChart)).BeginInit();
+            this.WGSchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.WGSmaand.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.WGSchart)).BeginInit();
             this.SuspendLayout();
             // 
-            // myButton
+            // button1
             // 
-            this.myButton.Location = new System.Drawing.Point(758, 544);
-            this.myButton.Name = "myButton";
-            this.myButton.Size = new System.Drawing.Size(125, 23);
-            this.myButton.TabIndex = 0;
-            this.myButton.Text = "myButton";
-            this.myButton.UseVisualStyleBackColor = true;
-            this.myButton.Click += new System.EventHandler(this.myButton_Click);
-            // 
-            // WFDChart
-            // 
-            chartArea2.Name = "ChartArea1";
-            this.WFDChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.WFDChart.Legends.Add(legend2);
-            this.WFDChart.Location = new System.Drawing.Point(534, 124);
-            this.WFDChart.Name = "WFDChart";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Min. Temperatuur";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Max. Temperatuur";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Gestolen fietsen";
-            this.WFDChart.Series.Add(series4);
-            this.WFDChart.Series.Add(series5);
-            this.WFDChart.Series.Add(series6);
-            this.WFDChart.Size = new System.Drawing.Size(623, 400);
-            this.WFDChart.TabIndex = 30;
-            this.WFDChart.Text = "Windsnelheid en geboorte en sterfte";
-            this.WFDChart.Click += new System.EventHandler(this.WGSchart_Click);
+            this.button1.Location = new System.Drawing.Point(760, 595);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(125, 25);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Terug naar hoofdmenu";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // WGSmaand
             // 
@@ -105,10 +79,10 @@
             this.WGSmaand.Controls.Add(this.WGSmrt);
             this.WGSmaand.Controls.Add(this.WGSfeb);
             this.WGSmaand.Controls.Add(this.WGSjan);
-            this.WGSmaand.Location = new System.Drawing.Point(93, 368);
+            this.WGSmaand.Location = new System.Drawing.Point(95, 390);
             this.WGSmaand.Name = "WGSmaand";
             this.WGSmaand.Size = new System.Drawing.Size(400, 130);
-            this.WGSmaand.TabIndex = 27;
+            this.WGSmaand.TabIndex = 21;
             this.WGSmaand.TabStop = false;
             this.WGSmaand.Text = "Maand";
             // 
@@ -235,51 +209,62 @@
             // WGSinleiding
             // 
             this.WGSinleiding.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WGSinleiding.Location = new System.Drawing.Point(58, 188);
+            this.WGSinleiding.Location = new System.Drawing.Point(60, 210);
             this.WGSinleiding.Multiline = true;
             this.WGSinleiding.Name = "WGSinleiding";
             this.WGSinleiding.Size = new System.Drawing.Size(470, 70);
-            this.WGSinleiding.TabIndex = 29;
+            this.WGSinleiding.TabIndex = 24;
             this.WGSinleiding.Text = resources.GetString("WGSinleiding.Text");
             // 
             // WGStitel
             // 
             this.WGStitel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WGStitel.Location = new System.Drawing.Point(68, 8);
+            this.WGStitel.Location = new System.Drawing.Point(70, 30);
             this.WGStitel.Name = "WGStitel";
             this.WGStitel.Size = new System.Drawing.Size(960, 44);
-            this.WGStitel.TabIndex = 28;
-            this.WGStitel.Text = "Temperatuur en fiets diefstal\r\n";
+            this.WGStitel.TabIndex = 23;
+            this.WGStitel.Text = "Windsnelheid en geboorte en sterfte";
             this.WGStitel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.WGStitel.TextChanged += new System.EventHandler(this.WGStitel_TextChanged);
             // 
-            // button1
+            // WGSchart
             // 
-            this.button1.Location = new System.Drawing.Point(758, 573);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 25);
-            this.button1.TabIndex = 26;
-            this.button1.Text = "Terug naar hoofdmenu";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            chartArea1.Name = "ChartArea1";
+            this.WGSchart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.WGSchart.Legends.Add(legend1);
+            this.WGSchart.Location = new System.Drawing.Point(580, 150);
+            this.WGSchart.Name = "WGSchart";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Windsnelheid";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Geboorte";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Sterfte";
+            this.WGSchart.Series.Add(series1);
+            this.WGSchart.Series.Add(series2);
+            this.WGSchart.Series.Add(series3);
+            this.WGSchart.Size = new System.Drawing.Size(490, 400);
+            this.WGSchart.TabIndex = 25;
+            this.WGSchart.Text = "Windsnelheid en geboorte en sterfte";
             // 
-            // Datavisualisatie1
+            // Datavisualisatie3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1169, 643);
-            this.Controls.Add(this.WFDChart);
+            this.ClientSize = new System.Drawing.Size(1114, 701);
+            this.Controls.Add(this.WGSchart);
             this.Controls.Add(this.WGSmaand);
             this.Controls.Add(this.WGSinleiding);
             this.Controls.Add(this.WGStitel);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.myButton);
-            this.Name = "Datavisualisatie1";
-            this.Text = "dataVisualisatie1";
-            this.Load += new System.EventHandler(this.myButton_Click);
-            ((System.ComponentModel.ISupportInitialize)(this.WFDChart)).EndInit();
+            this.Name = "Datavisualisatie3";
+            this.Text = "Datavisualisatie3";
             this.WGSmaand.ResumeLayout(false);
             this.WGSmaand.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.WGSchart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,8 +272,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button myButton;
-        private System.Windows.Forms.DataVisualization.Charting.Chart WFDChart;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox WGSmaand;
         private System.Windows.Forms.CheckBox WGSdec;
         private System.Windows.Forms.CheckBox WGSnov;
@@ -304,6 +288,6 @@
         private System.Windows.Forms.CheckBox WGSjan;
         private System.Windows.Forms.TextBox WGSinleiding;
         private System.Windows.Forms.TextBox WGStitel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart WGSchart;
     }
 }
