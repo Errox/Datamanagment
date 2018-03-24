@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,51 +13,43 @@ namespace Data
 {
     public partial class Datavisualisatie1 : Form
     {
+        public static string filePath = @"C:\Users\marti\OneDrive\Documenten\GitHub\Datamanagment\weer.txt";
+        public List<Data> Maanden = new List<Data>();
+
+        List<string> lines = File.ReadAllLines(filePath).ToList();
+            
         public Datavisualisatie1()
         {
             InitializeComponent();
         }
-
+        
         private void myButton_Click(object sender, EventArgs e)
         {
-            this.WFDChart.Series["Gestolen fietsen"].Points.AddXY("Jan", 33);
-            this.WFDChart.Series["Gestolen fietsen"].Points.AddXY("Feb", 33);
-            this.WFDChart.Series["Gestolen fietsen"].Points.AddXY("Maa", 33);
-            this.WFDChart.Series["Gestolen fietsen"].Points.AddXY("Apr", 33);
-            this.WFDChart.Series["Gestolen fietsen"].Points.AddXY("Mei", 33);
-            this.WFDChart.Series["Gestolen fietsen"].Points.AddXY("Jun", 33);
-            this.WFDChart.Series["Gestolen fietsen"].Points.AddXY("Jul", 33);
-            this.WFDChart.Series["Gestolen fietsen"].Points.AddXY("Aug", 33);
-            this.WFDChart.Series["Gestolen fietsen"].Points.AddXY("Sept", 33);
-            this.WFDChart.Series["Gestolen fietsen"].Points.AddXY("Oct", 33);
-            this.WFDChart.Series["Gestolen fietsen"].Points.AddXY("Nov", 33);
-            this.WFDChart.Series["Gestolen fietsen"].Points.AddXY("Dec", 33);
+            foreach (var line in lines)
+            {
+                string[] entries = line.Split(';');
 
-            this.WFDChart.Series["Max. Temperatuur"].Points.AddXY("Jan", 33);
-            this.WFDChart.Series["Max. Temperatuur"].Points.AddXY("Feb", 33);
-            this.WFDChart.Series["Max. Temperatuur"].Points.AddXY("Maa", 33);
-            this.WFDChart.Series["Max. Temperatuur"].Points.AddXY("Apr", 33);
-            this.WFDChart.Series["Max. Temperatuur"].Points.AddXY("Mei", 33);
-            this.WFDChart.Series["Max. Temperatuur"].Points.AddXY("Jun", 33);
-            this.WFDChart.Series["Max. Temperatuur"].Points.AddXY("Jul", 33);
-            this.WFDChart.Series["Max. Temperatuur"].Points.AddXY("Aug", 33);
-            this.WFDChart.Series["Max. Temperatuur"].Points.AddXY("Sept", 33);
-            this.WFDChart.Series["Max. Temperatuur"].Points.AddXY("Oct", 33);
-            this.WFDChart.Series["Max. Temperatuur"].Points.AddXY("Nov", 33);
-            this.WFDChart.Series["Max. Temperatuur"].Points.AddXY("Dec", 33);
+                Data newMaand = new Data
+                {
+                    Maand = entries[0],
+                    Windsnelheid = entries[1],
+                    Sterfte = entries[2],
+                    Geboorte = entries[3],
+                    Neerslag = entries[4],
+                    Stock = entries[5],
+                    MaxTemp = entries[6],
+                    FietsenDiefstal = entries[7]
+                };
 
-            this.WFDChart.Series["Min. Temperatuur"].Points.AddXY("Jan", 33);
-            this.WFDChart.Series["Min. Temperatuur"].Points.AddXY("Feb", 33);
-            this.WFDChart.Series["Min. Temperatuur"].Points.AddXY("Maa", 33);
-            this.WFDChart.Series["Min. Temperatuur"].Points.AddXY("Apr", 33);
-            this.WFDChart.Series["Min. Temperatuur"].Points.AddXY("Mei", 33);
-            this.WFDChart.Series["Min. Temperatuur"].Points.AddXY("Jun", 33);
-            this.WFDChart.Series["Min. Temperatuur"].Points.AddXY("Jul", 33);
-            this.WFDChart.Series["Min. Temperatuur"].Points.AddXY("Aug", 33);
-            this.WFDChart.Series["Min. Temperatuur"].Points.AddXY("Sept", 33);
-            this.WFDChart.Series["Min. Temperatuur"].Points.AddXY("Oct", 33);
-            this.WFDChart.Series["Min. Temperatuur"].Points.AddXY("Nov", 33);
-            this.WFDChart.Series["Min. Temperatuur"].Points.AddXY("Dec", 33);
+                Maanden.Add(newMaand);
+            }
+
+            foreach (var data in Maanden)
+            {
+                this.WFDChart.Series["Gestolen fietsen"].Points.AddXY($"{ data.Maand }", data.FietsenDiefstal);
+                this.WFDChart.Series["Max. Temperatuur"].Points.AddXY($"{ data.Maand }", data.MaxTemp);
+                this.WFDChart.Series["Min. Temperatuur"].Points.AddXY($"{ data.Maand }", 33);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -73,7 +66,7 @@ namespace Data
 
         private void WGSchart_Click(object sender, EventArgs e)
         {
-
+            throw new NotImplementedException();
         }
     }
 }
