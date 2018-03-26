@@ -436,4 +436,7 @@
         Nv0/dqYrchi6QBQAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="textBox1HM.Text" xml:space="preserve">
+    <value>Welkom bij de datavisualisatie over het weer en andere willekeurige factoren. Druk op 1 van de titels van de 3 blokjes om naar deze datavisualisatie te gaan. Druk op de uit-knop om de applicatie te sluiten.</value>
+  </data>
 </root>
