@@ -36,6 +36,7 @@
             this.Showdown = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox1HM = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,7 +107,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(410, 30);
+            this.pictureBox1.Location = new System.Drawing.Point(410, 90);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(300, 300);
             this.pictureBox1.TabIndex = 5;
@@ -116,7 +117,7 @@
             // 
             this.textBox1HM.BackColor = System.Drawing.SystemColors.Window;
             this.textBox1HM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1HM.Location = new System.Drawing.Point(320, 350);
+            this.textBox1HM.Location = new System.Drawing.Point(320, 360);
             this.textBox1HM.Multiline = true;
             this.textBox1HM.Name = "textBox1HM";
             this.textBox1HM.Size = new System.Drawing.Size(480, 60);
@@ -124,12 +125,24 @@
             this.textBox1HM.Text = resources.GetString("textBox1HM.Text");
             this.textBox1HM.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(70, 15);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(960, 62);
+            this.textBox1.TabIndex = 7;
+            this.textBox1.Text = "Weer en willekeur";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImage = global::Data.Properties.Resources.Wolken_achtergrond;
             this.ClientSize = new System.Drawing.Size(1114, 701);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.textBox1HM);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Showdown);
@@ -154,6 +167,7 @@
         private System.Windows.Forms.Button Showdown;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBox1HM;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
