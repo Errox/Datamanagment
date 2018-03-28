@@ -42,14 +42,5 @@ namespace Data
         {
             this.Close();
         }
-<<<<<<< HEAD
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"../1.mp3");
-            player.Play();
-        }
-=======
->>>>>>> 361306005ff5f2405e8cdc6a1273c6f93a900168
     }
 }

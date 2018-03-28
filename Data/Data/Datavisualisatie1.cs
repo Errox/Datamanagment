@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,11 +20,11 @@ namespace Data
         public List<Data> Maanden = new List<Data>();
 
         List<string> lines = File.ReadAllLines(filePath).ToList();
-
+        public static bool JanCheck;
+        public bool[] Arraycheck = new bool[] { JanCheck};
 
         public void LoadChart()
         {
-            WFDChart.Series.Clear();
             var series1 = new System.Windows.Forms.DataVisualization.Charting.Series
             {
                 Name = "Gestolen fietsen"
@@ -36,7 +37,18 @@ namespace Data
             WFDChart.Series.Add(series2);
             foreach (var line in lines)
             {
-                var entries = line.Split(';');
+                var entriesLine = line;
+
+                var newLine = new Maanden
+                {
+                    Maand = entriesLine[0]
+
+                };
+
+            }
+            foreach (var newLine in lines)
+            {
+                var entries = newLine.Split(';');
 
                 var newMaand = new Data
                 {
@@ -53,6 +65,7 @@ namespace Data
                 Maanden.Add(newMaand);
             }
 
+            
 
             foreach (var data in Maanden)
             {
@@ -67,12 +80,12 @@ namespace Data
         public Datavisualisatie1()
         {
             InitializeComponent();
+            LoadChart();
         }
 
         public void myButton_Click(object sender, EventArgs e)
         {
             myButton.Hide();
-            LoadChart();
         }
         
         
@@ -83,5 +96,45 @@ namespace Data
             mainMenu.Show();
 
         }
-    }
+
+        private void WGSchart_CheckedChanged(object sender, EventArgs e)
+        {
+            if (WGSchartbox.Checked == false){
+                WGSjan.Checked = false;
+                WGSfeb.Checked = false;
+                WGSmrt.Checked = false;
+                WGSapr.Checked = false;
+                WGSmei.Checked = false;
+                WGSjun.Checked = false;
+                WGSjul.Checked = false;
+                WGSaug.Checked = false;
+                WGSsep.Checked = false;
+                WGSokt.Checked = false;
+                WGSnov.Checked = false;
+                WGSdec.Checked = false;
+            }
+            else
+            {
+                WGSjan.Checked = true;
+                WGSfeb.Checked = true;
+                WGSmrt.Checked = true;
+                WGSapr.Checked = true;
+                WGSmei.Checked = true;
+                WGSjun.Checked = true;
+                WGSjul.Checked = true;
+                WGSaug.Checked = true;
+                WGSsep.Checked = true;
+                WGSokt.Checked = true;
+                WGSnov.Checked = true;
+                WGSdec.Checked = true;
+            }
+        }
+
+        private void WGSjan_CheckedChanged(object sender, EventArgs e)
+        {
+            if (WGSjan.Checked == true)
+            {
+                JanCheck = true;
+            }
+        }
 }
