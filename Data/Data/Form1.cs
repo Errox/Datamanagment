@@ -45,7 +45,7 @@ namespace Data
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"../1.mp3")
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"../1.mp3");
             player.Play();
         }
     }
