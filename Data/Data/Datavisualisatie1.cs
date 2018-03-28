@@ -21,7 +21,7 @@ namespace Data
 
         List<string> lines = File.ReadAllLines(filePath).ToList();
         public static bool JanCheck;
-        public bool[] Arraycheck = new bool[] { JanCheck};
+        public bool[] Arraycheck = new bool[] { JanCheck };
 
         public void LoadChart()
         {
@@ -39,11 +39,11 @@ namespace Data
             {
                 var entriesLine = line;
 
-                var newLine = new Maanden
-                {
-                    Maand = entriesLine[0]
+                //var newLine = new Maanden
+                //{
+                //    Maand = entriesLine[0]
 
-                };
+                //};
 
             }
             foreach (var newLine in lines)
@@ -65,7 +65,7 @@ namespace Data
                 Maanden.Add(newMaand);
             }
 
-            
+
 
             foreach (var data in Maanden)
             {
@@ -76,7 +76,7 @@ namespace Data
             return;
         }
 
-        
+
         public Datavisualisatie1()
         {
             InitializeComponent();
@@ -87,8 +87,8 @@ namespace Data
         {
             myButton.Hide();
         }
-        
-        
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -99,7 +99,8 @@ namespace Data
 
         private void WGSchart_CheckedChanged(object sender, EventArgs e)
         {
-            if (WGSchartbox.Checked == false){
+            if (WGSchartbox.Checked == false)
+            {
                 WGSjan.Checked = false;
                 WGSfeb.Checked = false;
                 WGSmrt.Checked = false;
@@ -137,4 +138,5 @@ namespace Data
                 JanCheck = true;
             }
         }
+    }
 }
