@@ -80,18 +80,6 @@ namespace Data
             this.WFDChart.Location = new System.Drawing.Point(712, 153);
             this.WFDChart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.WFDChart.Name = "WFDChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Min. Temperatuur";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Max. Temperatuur";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Gestolen fietsen";
-            this.WFDChart.Series.Add(series1);
-            this.WFDChart.Series.Add(series2);
-            this.WFDChart.Series.Add(series3);
             this.WFDChart.Size = new System.Drawing.Size(831, 492);
             this.WFDChart.TabIndex = 30;
             this.WFDChart.Text = "Windsnelheid en geboorte en sterfte";
