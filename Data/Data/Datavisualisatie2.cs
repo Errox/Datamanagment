@@ -24,5 +24,10 @@ namespace Data
             Form1 mainMenu = new Form1();
             mainMenu.Show();
         }
+
+        private void WGSchart_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
