@@ -85,7 +85,7 @@
             // 
             this.Showdown.BackColor = System.Drawing.Color.Transparent;
             this.Showdown.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Showdown.BackgroundImage")));
-            this.Showdown.Location = new System.Drawing.Point(538, 585);
+            this.Showdown.Location = new System.Drawing.Point(530, 585);
             this.Showdown.Name = "Showdown";
             this.Showdown.Size = new System.Drawing.Size(50, 50);
             this.Showdown.TabIndex = 4;
@@ -100,6 +100,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(300, 300);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // textBox1HM
             // 
