@@ -32,7 +32,6 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Datavisualisatie2));
             this.WGSchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.WGSinleiding = new System.Windows.Forms.TextBox();
@@ -65,19 +64,16 @@
             this.WGSchart.Name = "WGSchart";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
-            series1.Name = "Windsnelheid";
+            series1.Name = "Google stocks";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
-            series2.Name = "Geboorte";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Sterfte";
+            series2.Name = "Neerslag";
             this.WGSchart.Series.Add(series1);
             this.WGSchart.Series.Add(series2);
-            this.WGSchart.Series.Add(series3);
             this.WGSchart.Size = new System.Drawing.Size(490, 400);
             this.WGSchart.TabIndex = 30;
-            this.WGSchart.Text = "Windsnelheid en geboorte en sterfte";
+            this.WGSchart.Text = "Google stocks en Het weer";
+            this.WGSchart.Click += new System.EventHandler(this.WGSchart_Click);
             // 
             // WGSinleiding
             // 
@@ -237,7 +233,7 @@
             this.WGStitel.Name = "WGStitel";
             this.WGStitel.Size = new System.Drawing.Size(960, 44);
             this.WGStitel.TabIndex = 28;
-            this.WGStitel.Text = "Windsnelheid en geboorte en sterfte";
+            this.WGStitel.Text = "Google stocks en neerslag";
             this.WGStitel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // button2
