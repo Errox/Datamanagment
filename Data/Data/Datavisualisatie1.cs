@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,28 +9,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Data
 {
     public partial class Datavisualisatie1 : Form
     {
-        public static string filePath = @"C:\Users\marti\OneDrive\Documenten\GitHub\Datamanagment\weer.txt";
+        public static string filePath = @"../weer.txt";
         public List<Data> Maanden = new List<Data>();
 
         List<string> lines = File.ReadAllLines(filePath).ToList();
-            
+
+        
         public Datavisualisatie1()
         {
             InitializeComponent();
         }
-        
-        private void myButton_Click(object sender, EventArgs e)
+
+        public void dataVisualisatie1_load(object sender, EventArgs e)
         {
+            
+        }
+
+        public void myButton_Click(object sender, EventArgs e)
+        {
+            WFDChart.Series.Clear();
+            var series1 = new System.Windows.Forms.DataVisualization.Charting.Series
+            {
+                Name = "Gestolen fietsen"
+            };
+            var series2 = new System.Windows.Forms.DataVisualization.Charting.Series
+            {
+                Name = "Max. Temperatuur"
+            };
+            WFDChart.Series.Add(series1);
+            WFDChart.Series.Add(series2);
             foreach (var line in lines)
             {
-                string[] entries = line.Split(';');
+                var entries = line.Split(';');
 
-                Data newMaand = new Data
+                var newMaand = new Data
                 {
                     Maand = entries[0],
                     Windsnelheid = entries[1],
@@ -44,29 +63,22 @@ namespace Data
                 Maanden.Add(newMaand);
             }
 
+
             foreach (var data in Maanden)
             {
-                this.WFDChart.Series["Gestolen fietsen"].Points.AddXY($"{ data.Maand }", data.FietsenDiefstal);
-                this.WFDChart.Series["Max. Temperatuur"].Points.AddXY($"{ data.Maand }", data.MaxTemp);
-                this.WFDChart.Series["Min. Temperatuur"].Points.AddXY($"{ data.Maand }", 33);
+
+                WFDChart.Series["Gestolen fietsen"].Points.AddXY($"{data.Maand}", data.FietsenDiefstal);
+                WFDChart.Series["Max. Temperatuur"].Points.AddXY($"{data.Maand}", data.MaxTemp);
             }
         }
-
+        
+        
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
             Form1 mainMenu = new Form1();
             mainMenu.Show();
         }
-
-        private void WGStitel_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void WGSchart_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }
