@@ -66,7 +66,6 @@ namespace Data
 
             foreach (var data in Maanden)
             {
-
                 WFDChart.Series["Gestolen fietsen"].Points.AddXY($"{data.Maand}", data.FietsenDiefstal);
                 WFDChart.Series["Max. Temperatuur"].Points.AddXY($"{data.Maand}", data.MaxTemp);
             }
