@@ -38,13 +38,6 @@ namespace Data
             Datavisualisatie3.Show();
         }
 
-        private void Settings_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Settings Settings = new Settings();
-            Settings.Show();
-        }
-
         private void Shutdown_Click(object sender, EventArgs e)
         {
             this.Close();

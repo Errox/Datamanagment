@@ -32,7 +32,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.Settings = new System.Windows.Forms.Button();
             this.Showdown = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox1HM = new System.Windows.Forms.TextBox();
@@ -82,22 +81,11 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // Settings
-            // 
-            this.Settings.BackColor = System.Drawing.Color.Transparent;
-            this.Settings.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Settings.BackgroundImage")));
-            this.Settings.Location = new System.Drawing.Point(470, 580);
-            this.Settings.Name = "Settings";
-            this.Settings.Size = new System.Drawing.Size(50, 50);
-            this.Settings.TabIndex = 3;
-            this.Settings.UseVisualStyleBackColor = false;
-            this.Settings.Click += new System.EventHandler(this.Settings_Click);
-            // 
             // Showdown
             // 
             this.Showdown.BackColor = System.Drawing.Color.Transparent;
             this.Showdown.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Showdown.BackgroundImage")));
-            this.Showdown.Location = new System.Drawing.Point(600, 580);
+            this.Showdown.Location = new System.Drawing.Point(538, 585);
             this.Showdown.Name = "Showdown";
             this.Showdown.Size = new System.Drawing.Size(50, 50);
             this.Showdown.TabIndex = 4;
@@ -141,12 +129,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = global::Data.Properties.Resources.Wolken_achtergrond;
-            this.ClientSize = new System.Drawing.Size(1114, 701);
+            this.ClientSize = new System.Drawing.Size(1113, 647);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.textBox1HM);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Showdown);
-            this.Controls.Add(this.Settings);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -163,7 +150,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button Settings;
         private System.Windows.Forms.Button Showdown;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBox1HM;

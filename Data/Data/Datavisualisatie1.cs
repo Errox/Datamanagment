@@ -13,7 +13,7 @@ namespace Data
 {
     public partial class Datavisualisatie1 : Form
     {
-        public static string filePath = @"C:\Users\marti\OneDrive\Documenten\GitHub\Datamanagment\weer.txt";
+        public static string filePath = @"../weer.txt";
         public List<Data> Maanden = new List<Data>();
 
         List<string> lines = File.ReadAllLines(filePath).ToList();
