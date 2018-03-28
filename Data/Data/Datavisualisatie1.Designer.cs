@@ -64,10 +64,9 @@ namespace Data
             // 
             // myButton
             // 
-            this.myButton.Location = new System.Drawing.Point(1011, 670);
-            this.myButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.myButton.Location = new System.Drawing.Point(758, 544);
             this.myButton.Name = "myButton";
-            this.myButton.Size = new System.Drawing.Size(167, 28);
+            this.myButton.Size = new System.Drawing.Size(125, 23);
             this.myButton.TabIndex = 0;
             this.myButton.Text = "myButton";
             this.myButton.UseVisualStyleBackColor = true;
@@ -79,8 +78,7 @@ namespace Data
             this.WFDChart.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.WFDChart.Legends.Add(legend1);
-            this.WFDChart.Location = new System.Drawing.Point(712, 153);
-            this.WFDChart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.WFDChart.Location = new System.Drawing.Point(534, 124);
             this.WFDChart.Name = "WFDChart";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
@@ -94,7 +92,7 @@ namespace Data
             this.WFDChart.Series.Add(series1);
             this.WFDChart.Series.Add(series2);
             this.WFDChart.Series.Add(series3);
-            this.WFDChart.Size = new System.Drawing.Size(831, 492);
+            this.WFDChart.Size = new System.Drawing.Size(623, 400);
             this.WFDChart.TabIndex = 30;
             this.WFDChart.Text = "Windsnelheid en geboorte en sterfte";
             this.WFDChart.Click += new System.EventHandler(this.WGSchart_Click);
@@ -113,11 +111,9 @@ namespace Data
             this.WGSmaand.Controls.Add(this.WGSmrt);
             this.WGSmaand.Controls.Add(this.WGSfeb);
             this.WGSmaand.Controls.Add(this.WGSjan);
-            this.WGSmaand.Location = new System.Drawing.Point(124, 453);
-            this.WGSmaand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.WGSmaand.Location = new System.Drawing.Point(93, 368);
             this.WGSmaand.Name = "WGSmaand";
-            this.WGSmaand.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.WGSmaand.Size = new System.Drawing.Size(533, 160);
+            this.WGSmaand.Size = new System.Drawing.Size(400, 130);
             this.WGSmaand.TabIndex = 27;
             this.WGSmaand.TabStop = false;
             this.WGSmaand.Text = "Maand";
@@ -125,10 +121,9 @@ namespace Data
             // WGSdec
             // 
             this.WGSdec.AutoSize = true;
-            this.WGSdec.Location = new System.Drawing.Point(384, 96);
-            this.WGSdec.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.WGSdec.Location = new System.Drawing.Point(288, 78);
             this.WGSdec.Name = "WGSdec";
-            this.WGSdec.Size = new System.Drawing.Size(93, 21);
+            this.WGSdec.Size = new System.Drawing.Size(73, 17);
             this.WGSdec.TabIndex = 11;
             this.WGSdec.Text = "december";
             this.WGSdec.UseVisualStyleBackColor = true;
@@ -136,10 +131,9 @@ namespace Data
             // WGSnov
             // 
             this.WGSnov.AutoSize = true;
-            this.WGSnov.Location = new System.Drawing.Point(269, 96);
-            this.WGSnov.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.WGSnov.Location = new System.Drawing.Point(202, 78);
             this.WGSnov.Name = "WGSnov";
-            this.WGSnov.Size = new System.Drawing.Size(93, 21);
+            this.WGSnov.Size = new System.Drawing.Size(73, 17);
             this.WGSnov.TabIndex = 10;
             this.WGSnov.Text = "november";
             this.WGSnov.UseVisualStyleBackColor = true;
@@ -147,10 +141,9 @@ namespace Data
             // WGSokt
             // 
             this.WGSokt.AutoSize = true;
-            this.WGSokt.Location = new System.Drawing.Point(155, 96);
-            this.WGSokt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.WGSokt.Location = new System.Drawing.Point(116, 78);
             this.WGSokt.Name = "WGSokt";
-            this.WGSokt.Size = new System.Drawing.Size(78, 21);
+            this.WGSokt.Size = new System.Drawing.Size(62, 17);
             this.WGSokt.TabIndex = 9;
             this.WGSokt.Text = "oktober";
             this.WGSokt.UseVisualStyleBackColor = true;
@@ -158,10 +151,9 @@ namespace Data
             // WGSsep
             // 
             this.WGSsep.AutoSize = true;
-            this.WGSsep.Location = new System.Drawing.Point(40, 96);
-            this.WGSsep.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.WGSsep.Location = new System.Drawing.Point(30, 78);
             this.WGSsep.Name = "WGSsep";
-            this.WGSsep.Size = new System.Drawing.Size(97, 21);
+            this.WGSsep.Size = new System.Drawing.Size(75, 17);
             this.WGSsep.TabIndex = 8;
             this.WGSsep.Text = "september";
             this.WGSsep.UseVisualStyleBackColor = true;
@@ -169,10 +161,9 @@ namespace Data
             // WGSaug
             // 
             this.WGSaug.AutoSize = true;
-            this.WGSaug.Location = new System.Drawing.Point(384, 66);
-            this.WGSaug.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.WGSaug.Location = new System.Drawing.Point(288, 54);
             this.WGSaug.Name = "WGSaug";
-            this.WGSaug.Size = new System.Drawing.Size(88, 21);
+            this.WGSaug.Size = new System.Drawing.Size(69, 17);
             this.WGSaug.TabIndex = 7;
             this.WGSaug.Text = "augustus";
             this.WGSaug.UseVisualStyleBackColor = true;
@@ -180,10 +171,9 @@ namespace Data
             // WGSjul
             // 
             this.WGSjul.AutoSize = true;
-            this.WGSjul.Location = new System.Drawing.Point(269, 66);
-            this.WGSjul.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.WGSjul.Location = new System.Drawing.Point(202, 54);
             this.WGSjul.Name = "WGSjul";
-            this.WGSjul.Size = new System.Drawing.Size(47, 21);
+            this.WGSjul.Size = new System.Drawing.Size(38, 17);
             this.WGSjul.TabIndex = 6;
             this.WGSjul.Text = "juli";
             this.WGSjul.UseVisualStyleBackColor = true;
@@ -191,10 +181,9 @@ namespace Data
             // WGSjun
             // 
             this.WGSjun.AutoSize = true;
-            this.WGSjun.Location = new System.Drawing.Point(155, 66);
-            this.WGSjun.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.WGSjun.Location = new System.Drawing.Point(116, 54);
             this.WGSjun.Name = "WGSjun";
-            this.WGSjun.Size = new System.Drawing.Size(52, 21);
+            this.WGSjun.Size = new System.Drawing.Size(42, 17);
             this.WGSjun.TabIndex = 5;
             this.WGSjun.Text = "juni";
             this.WGSjun.UseVisualStyleBackColor = true;
@@ -202,10 +191,9 @@ namespace Data
             // WGSmei
             // 
             this.WGSmei.AutoSize = true;
-            this.WGSmei.Location = new System.Drawing.Point(40, 66);
-            this.WGSmei.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.WGSmei.Location = new System.Drawing.Point(30, 54);
             this.WGSmei.Name = "WGSmei";
-            this.WGSmei.Size = new System.Drawing.Size(52, 21);
+            this.WGSmei.Size = new System.Drawing.Size(42, 17);
             this.WGSmei.TabIndex = 4;
             this.WGSmei.Text = "mei";
             this.WGSmei.UseVisualStyleBackColor = true;
@@ -213,10 +201,9 @@ namespace Data
             // WGSapr
             // 
             this.WGSapr.AutoSize = true;
-            this.WGSapr.Location = new System.Drawing.Point(384, 37);
-            this.WGSapr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.WGSapr.Location = new System.Drawing.Point(288, 30);
             this.WGSapr.Name = "WGSapr";
-            this.WGSapr.Size = new System.Drawing.Size(57, 21);
+            this.WGSapr.Size = new System.Drawing.Size(45, 17);
             this.WGSapr.TabIndex = 3;
             this.WGSapr.Text = "april";
             this.WGSapr.UseVisualStyleBackColor = true;
@@ -224,10 +211,9 @@ namespace Data
             // WGSmrt
             // 
             this.WGSmrt.AutoSize = true;
-            this.WGSmrt.Location = new System.Drawing.Point(269, 37);
-            this.WGSmrt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.WGSmrt.Location = new System.Drawing.Point(202, 30);
             this.WGSmrt.Name = "WGSmrt";
-            this.WGSmrt.Size = new System.Drawing.Size(66, 21);
+            this.WGSmrt.Size = new System.Drawing.Size(52, 17);
             this.WGSmrt.TabIndex = 2;
             this.WGSmrt.Text = "maart";
             this.WGSmrt.UseVisualStyleBackColor = true;
@@ -235,10 +221,9 @@ namespace Data
             // WGSfeb
             // 
             this.WGSfeb.AutoSize = true;
-            this.WGSfeb.Location = new System.Drawing.Point(155, 37);
-            this.WGSfeb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.WGSfeb.Location = new System.Drawing.Point(116, 30);
             this.WGSfeb.Name = "WGSfeb";
-            this.WGSfeb.Size = new System.Drawing.Size(79, 21);
+            this.WGSfeb.Size = new System.Drawing.Size(61, 17);
             this.WGSfeb.TabIndex = 1;
             this.WGSfeb.Text = "februari";
             this.WGSfeb.UseVisualStyleBackColor = true;
@@ -246,10 +231,9 @@ namespace Data
             // WGSjan
             // 
             this.WGSjan.AutoSize = true;
-            this.WGSjan.Location = new System.Drawing.Point(40, 37);
-            this.WGSjan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.WGSjan.Location = new System.Drawing.Point(30, 30);
             this.WGSjan.Name = "WGSjan";
-            this.WGSjan.Size = new System.Drawing.Size(73, 21);
+            this.WGSjan.Size = new System.Drawing.Size(57, 17);
             this.WGSjan.TabIndex = 0;
             this.WGSjan.Text = "januari";
             this.WGSjan.UseVisualStyleBackColor = true;
@@ -257,22 +241,20 @@ namespace Data
             // WGSinleiding
             // 
             this.WGSinleiding.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WGSinleiding.Location = new System.Drawing.Point(77, 231);
-            this.WGSinleiding.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.WGSinleiding.Location = new System.Drawing.Point(58, 188);
             this.WGSinleiding.Multiline = true;
             this.WGSinleiding.Name = "WGSinleiding";
             this.WGSinleiding.ReadOnly = true;
-            this.WGSinleiding.Size = new System.Drawing.Size(625, 85);
+            this.WGSinleiding.Size = new System.Drawing.Size(470, 70);
             this.WGSinleiding.TabIndex = 29;
             this.WGSinleiding.Text = resources.GetString("WGSinleiding.Text");
             // 
             // WGStitel
             // 
             this.WGStitel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WGStitel.Location = new System.Drawing.Point(91, 10);
-            this.WGStitel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.WGStitel.Location = new System.Drawing.Point(68, 8);
             this.WGStitel.Name = "WGStitel";
-            this.WGStitel.Size = new System.Drawing.Size(1279, 53);
+            this.WGStitel.Size = new System.Drawing.Size(960, 44);
             this.WGStitel.TabIndex = 28;
             this.WGStitel.Text = "Temperatuur en fiets diefstal\r\n";
             this.WGStitel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -280,10 +262,9 @@ namespace Data
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1011, 705);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(758, 573);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(167, 31);
+            this.button1.Size = new System.Drawing.Size(125, 25);
             this.button1.TabIndex = 26;
             this.button1.Text = "Terug naar hoofdmenu";
             this.button1.UseVisualStyleBackColor = true;
@@ -291,16 +272,16 @@ namespace Data
             // 
             // Datavisualisatie1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1559, 791);
+            this.BackgroundImage = global::Data.Properties.Resources.Wolken_achtergrond;
+            this.ClientSize = new System.Drawing.Size(1169, 643);
             this.Controls.Add(this.WFDChart);
             this.Controls.Add(this.WGSmaand);
             this.Controls.Add(this.WGSinleiding);
             this.Controls.Add(this.WGStitel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.myButton);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Datavisualisatie1";
             this.Text = "dataVisualisatie1";
             this.Load += new System.EventHandler(this.myButton_Click);
