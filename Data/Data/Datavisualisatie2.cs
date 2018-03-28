@@ -22,15 +22,16 @@ namespace Data
         public Datavisualisatie2()
         {
             InitializeComponent();
-            LoadChart(false);
+            LoadChart(true);
         }
 
 
-        public void LoadChart(bool clear)
+        public void LoadChart(bool first)
         {
 //            var values = check_checkbox();
             WGSchart.Series.Clear();
             WGSchart.ResetAutoValues();
+            
             foreach (var series in WGSchart.Series)
             {
                 series.Points.Clear();
@@ -45,91 +46,101 @@ namespace Data
             };
             WGSchart.Series.Add(series1);
             WGSchart.Series.Add(series2);
+            WGSchart.ChartAreas[0].AxisX.Interval = 1;
 
-            foreach (var line in lines)
+            if (first == true)
             {
-                var entries = line.Split(';');
-
-                var newMaand = new Data
+                foreach (var line in lines)
                 {
-                    Maand = entries[0],
-                    Windsnelheid = entries[1],
-                    Sterfte = entries[2],
-                    Geboorte = entries[3],
-                    Neerslag = entries[4],
-                    Stock = entries[5],
-                    MaxTemp = entries[6],
-                    FietsenDiefstal = entries[7]
-                };
+                    var entries = line.Split(';');
 
-                Maanden.Add(newMaand);
-            }            
+
+                    var newMaand = new Data
+                    {
+                        Maand = entries[0],
+                        Windsnelheid = entries[1],
+                        Sterfte = entries[2],
+                        Geboorte = entries[3],
+                        Neerslag = entries[4],
+                        Stock = entries[5],
+                        MaxTemp = entries[6],
+                        FietsenDiefstal = entries[7]
+                    };
+
+                    Maanden.Add(newMaand);
+                    Console.WriteLine(Maanden);
+                }
+
+            }
+
+
             foreach (var data in Maanden)
             {
 
-                if (Jan.Checked == true || data.Maand == "jan")
+                if (Jan.Checked == true && data.Maand == "jan")
+                {
+                    WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
+                    WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
+                    Console.WriteLine("je moeder");
+                }
+                else if (feb.Checked == true && data.Maand == "feb")
                 {
                     WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
                     WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
                 }
-                else if (feb.Checked == true || data.Maand == "feb")
-                {
-                    WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
-                    WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
-                }
-                else if (apr.Checked == true || data.Maand == "apr")
-                {
-                    WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
-                    WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
-
-                }
-                else if (mrt.Checked == true || data.Maand == "mrt")
+                else if (apr.Checked == true && data.Maand == "apr")
                 {
                     WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
                     WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
 
                 }
-                else if (mei.Checked == true || data.Maand == "mei")
+                else if (mrt.Checked == true && data.Maand == "mrt")
                 {
                     WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
                     WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
 
                 }
-                else if (jun.Checked == true || data.Maand == "jun")
+                else if (mei.Checked == true && data.Maand == "mei")
                 {
                     WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
                     WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
 
                 }
-                else if (jul.Checked == true || data.Maand == "jul")
+                else if (jun.Checked == true && data.Maand == "jun")
                 {
                     WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
                     WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
 
                 }
-                else if (aug.Checked == true || data.Maand == "aug")
-                {
-                    WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
-                    WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
-                }
-                else if (sep.Checked == true || data.Maand == "sep")
-                {
-                    WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
-                    WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
-                }
-                else if (okt.Checked == true || data.Maand == "okt")
+                else if (jul.Checked == true && data.Maand == "jul")
                 {
                     WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
                     WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
 
                 }
-                else if (nov.Checked == true || data.Maand == "nov")
+                else if (aug.Checked == true && data.Maand == "aug")
+                {
+                    WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
+                    WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
+                }
+                else if (sep.Checked == true && data.Maand == "sep")
+                {
+                    WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
+                    WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
+                }
+                else if (okt.Checked == true && data.Maand == "okt")
                 {
                     WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
                     WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
 
                 }
-                else if (dec.Checked == true || data.Maand == "dec")
+                else if (nov.Checked == true && data.Maand == "nov")
+                {
+                    WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
+                    WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
+
+                }
+                else if (dec.Checked == true && data.Maand == "dec")
                 {
                     WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
                     WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
@@ -159,17 +170,62 @@ namespace Data
 
         private void feb_CheckedChanged(object sender, EventArgs e)
         {
-            LoadChart(true);
+            LoadChart(false);
         }
 
         private void check_jan_CheckedChanged(object sender, EventArgs e)
         {
-            LoadChart(true);
+            LoadChart(false);
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void mrt_CheckedChanged(object sender, EventArgs e)
         {
-            WGSchart.Series.Clear();
+            LoadChart(false);
+        }
+
+        private void apr_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadChart(false);
+        }
+
+        private void aug_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadChart(false);
+        }
+
+        private void jul_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadChart(false);
+        }
+
+        private void jun_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadChart(false);
+        }
+
+        private void mei_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadChart(false);
+        }
+
+        private void sep_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadChart(false);
+        }
+
+        private void okt_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadChart(false);
+        }
+
+        private void nov_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadChart(false);
+        }
+
+        private void dec_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadChart(false);
         }
     }
 }
