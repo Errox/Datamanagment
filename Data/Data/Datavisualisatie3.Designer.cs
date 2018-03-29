@@ -28,244 +28,270 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Datavisualisatie3));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.button1 = new System.Windows.Forms.Button();
-            this.WGSmaand = new System.Windows.Forms.GroupBox();
-            this.WGSdec = new System.Windows.Forms.CheckBox();
-            this.WGSnov = new System.Windows.Forms.CheckBox();
-            this.WGSokt = new System.Windows.Forms.CheckBox();
-            this.WGSsep = new System.Windows.Forms.CheckBox();
-            this.WGSaug = new System.Windows.Forms.CheckBox();
-            this.WGSjul = new System.Windows.Forms.CheckBox();
-            this.WGSjun = new System.Windows.Forms.CheckBox();
-            this.WGSmei = new System.Windows.Forms.CheckBox();
-            this.WGSapr = new System.Windows.Forms.CheckBox();
-            this.WGSmrt = new System.Windows.Forms.CheckBox();
-            this.WGSfeb = new System.Windows.Forms.CheckBox();
-            this.WGSjan = new System.Windows.Forms.CheckBox();
-            this.WGSinleiding = new System.Windows.Forms.TextBox();
-            this.WGStitel = new System.Windows.Forms.TextBox();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Datavisualisatie2));
             this.WGSchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.WGSmaand.SuspendLayout();
+            this.WGSinleiding = new System.Windows.Forms.TextBox();
+            this.WGSmaand = new System.Windows.Forms.GroupBox();
+            this.dec = new System.Windows.Forms.CheckBox();
+            this.nov = new System.Windows.Forms.CheckBox();
+            this.okt = new System.Windows.Forms.CheckBox();
+            this.sep = new System.Windows.Forms.CheckBox();
+            this.aug = new System.Windows.Forms.CheckBox();
+            this.jul = new System.Windows.Forms.CheckBox();
+            this.jun = new System.Windows.Forms.CheckBox();
+            this.mei = new System.Windows.Forms.CheckBox();
+            this.apr = new System.Windows.Forms.CheckBox();
+            this.mrt = new System.Windows.Forms.CheckBox();
+            this.feb = new System.Windows.Forms.CheckBox();
+            this.Jan = new System.Windows.Forms.CheckBox();
+            this.WGStitel = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.WGSchart)).BeginInit();
+            this.WGSmaand.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // WGSchart
             // 
-            this.button1.Location = new System.Drawing.Point(760, 595);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 25);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Terug naar hoofdmenu";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // WGSmaand
-            // 
-            this.WGSmaand.Controls.Add(this.WGSdec);
-            this.WGSmaand.Controls.Add(this.WGSnov);
-            this.WGSmaand.Controls.Add(this.WGSokt);
-            this.WGSmaand.Controls.Add(this.WGSsep);
-            this.WGSmaand.Controls.Add(this.WGSaug);
-            this.WGSmaand.Controls.Add(this.WGSjul);
-            this.WGSmaand.Controls.Add(this.WGSjun);
-            this.WGSmaand.Controls.Add(this.WGSmei);
-            this.WGSmaand.Controls.Add(this.WGSapr);
-            this.WGSmaand.Controls.Add(this.WGSmrt);
-            this.WGSmaand.Controls.Add(this.WGSfeb);
-            this.WGSmaand.Controls.Add(this.WGSjan);
-            this.WGSmaand.Location = new System.Drawing.Point(95, 390);
-            this.WGSmaand.Name = "WGSmaand";
-            this.WGSmaand.Size = new System.Drawing.Size(400, 130);
-            this.WGSmaand.TabIndex = 21;
-            this.WGSmaand.TabStop = false;
-            this.WGSmaand.Text = "Maand";
-            // 
-            // WGSdec
-            // 
-            this.WGSdec.AutoSize = true;
-            this.WGSdec.Location = new System.Drawing.Point(288, 78);
-            this.WGSdec.Name = "WGSdec";
-            this.WGSdec.Size = new System.Drawing.Size(73, 17);
-            this.WGSdec.TabIndex = 11;
-            this.WGSdec.Text = "december";
-            this.WGSdec.UseVisualStyleBackColor = true;
-            // 
-            // WGSnov
-            // 
-            this.WGSnov.AutoSize = true;
-            this.WGSnov.Location = new System.Drawing.Point(202, 78);
-            this.WGSnov.Name = "WGSnov";
-            this.WGSnov.Size = new System.Drawing.Size(73, 17);
-            this.WGSnov.TabIndex = 10;
-            this.WGSnov.Text = "november";
-            this.WGSnov.UseVisualStyleBackColor = true;
-            // 
-            // WGSokt
-            // 
-            this.WGSokt.AutoSize = true;
-            this.WGSokt.Location = new System.Drawing.Point(116, 78);
-            this.WGSokt.Name = "WGSokt";
-            this.WGSokt.Size = new System.Drawing.Size(62, 17);
-            this.WGSokt.TabIndex = 9;
-            this.WGSokt.Text = "oktober";
-            this.WGSokt.UseVisualStyleBackColor = true;
-            // 
-            // WGSsep
-            // 
-            this.WGSsep.AutoSize = true;
-            this.WGSsep.Location = new System.Drawing.Point(30, 78);
-            this.WGSsep.Name = "WGSsep";
-            this.WGSsep.Size = new System.Drawing.Size(75, 17);
-            this.WGSsep.TabIndex = 8;
-            this.WGSsep.Text = "september";
-            this.WGSsep.UseVisualStyleBackColor = true;
-            // 
-            // WGSaug
-            // 
-            this.WGSaug.AutoSize = true;
-            this.WGSaug.Location = new System.Drawing.Point(288, 54);
-            this.WGSaug.Name = "WGSaug";
-            this.WGSaug.Size = new System.Drawing.Size(69, 17);
-            this.WGSaug.TabIndex = 7;
-            this.WGSaug.Text = "augustus";
-            this.WGSaug.UseVisualStyleBackColor = true;
-            // 
-            // WGSjul
-            // 
-            this.WGSjul.AutoSize = true;
-            this.WGSjul.Location = new System.Drawing.Point(202, 54);
-            this.WGSjul.Name = "WGSjul";
-            this.WGSjul.Size = new System.Drawing.Size(38, 17);
-            this.WGSjul.TabIndex = 6;
-            this.WGSjul.Text = "juli";
-            this.WGSjul.UseVisualStyleBackColor = true;
-            // 
-            // WGSjun
-            // 
-            this.WGSjun.AutoSize = true;
-            this.WGSjun.Location = new System.Drawing.Point(116, 54);
-            this.WGSjun.Name = "WGSjun";
-            this.WGSjun.Size = new System.Drawing.Size(42, 17);
-            this.WGSjun.TabIndex = 5;
-            this.WGSjun.Text = "juni";
-            this.WGSjun.UseVisualStyleBackColor = true;
-            // 
-            // WGSmei
-            // 
-            this.WGSmei.AutoSize = true;
-            this.WGSmei.Location = new System.Drawing.Point(30, 54);
-            this.WGSmei.Name = "WGSmei";
-            this.WGSmei.Size = new System.Drawing.Size(42, 17);
-            this.WGSmei.TabIndex = 4;
-            this.WGSmei.Text = "mei";
-            this.WGSmei.UseVisualStyleBackColor = true;
-            // 
-            // WGSapr
-            // 
-            this.WGSapr.AutoSize = true;
-            this.WGSapr.Location = new System.Drawing.Point(288, 30);
-            this.WGSapr.Name = "WGSapr";
-            this.WGSapr.Size = new System.Drawing.Size(45, 17);
-            this.WGSapr.TabIndex = 3;
-            this.WGSapr.Text = "april";
-            this.WGSapr.UseVisualStyleBackColor = true;
-            // 
-            // WGSmrt
-            // 
-            this.WGSmrt.AutoSize = true;
-            this.WGSmrt.Location = new System.Drawing.Point(202, 30);
-            this.WGSmrt.Name = "WGSmrt";
-            this.WGSmrt.Size = new System.Drawing.Size(52, 17);
-            this.WGSmrt.TabIndex = 2;
-            this.WGSmrt.Text = "maart";
-            this.WGSmrt.UseVisualStyleBackColor = true;
-            // 
-            // WGSfeb
-            // 
-            this.WGSfeb.AutoSize = true;
-            this.WGSfeb.Location = new System.Drawing.Point(116, 30);
-            this.WGSfeb.Name = "WGSfeb";
-            this.WGSfeb.Size = new System.Drawing.Size(61, 17);
-            this.WGSfeb.TabIndex = 1;
-            this.WGSfeb.Text = "februari";
-            this.WGSfeb.UseVisualStyleBackColor = true;
-            // 
-            // WGSjan
-            // 
-            this.WGSjan.AutoSize = true;
-            this.WGSjan.Location = new System.Drawing.Point(30, 30);
-            this.WGSjan.Name = "WGSjan";
-            this.WGSjan.Size = new System.Drawing.Size(57, 17);
-            this.WGSjan.TabIndex = 0;
-            this.WGSjan.Text = "januari";
-            this.WGSjan.UseVisualStyleBackColor = true;
+            chartArea5.AxisX.LabelAutoFitMaxFontSize = 14;
+            chartArea5.AxisX.LabelAutoFitMinFontSize = 14;
+            chartArea5.AxisX2.LabelAutoFitMaxFontSize = 14;
+            chartArea5.AxisX2.LabelAutoFitMinFontSize = 14;
+            chartArea5.Name = "ChartArea1";
+            this.WGSchart.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.WGSchart.Legends.Add(legend5);
+            this.WGSchart.Location = new System.Drawing.Point(61, 171);
+            this.WGSchart.Name = "WGSchart";
+            this.WGSchart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
+            this.WGSchart.Size = new System.Drawing.Size(960, 368);
+            this.WGSchart.TabIndex = 12;
+            this.WGSchart.Text = "Google stocks en Het weer";
+            
             // 
             // WGSinleiding
             // 
             this.WGSinleiding.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WGSinleiding.Location = new System.Drawing.Point(60, 210);
+            this.WGSinleiding.Location = new System.Drawing.Point(317, 98);
             this.WGSinleiding.Multiline = true;
             this.WGSinleiding.Name = "WGSinleiding";
             this.WGSinleiding.Size = new System.Drawing.Size(470, 70);
-            this.WGSinleiding.TabIndex = 24;
+            this.WGSinleiding.TabIndex = 29;
             this.WGSinleiding.Text = resources.GetString("WGSinleiding.Text");
+            // 
+            // dec
+            // 
+            this.dec.AutoSize = true;
+            this.dec.Checked = true;
+            this.dec.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.dec.Location = new System.Drawing.Point(288, 78);
+            this.dec.Name = "dec";
+            this.dec.Size = new System.Drawing.Size(73, 17);
+            this.dec.TabIndex = 11;
+            this.dec.Text = "december";
+            this.dec.UseVisualStyleBackColor = true;
+            this.dec.CheckedChanged += new System.EventHandler(this.dec_CheckedChanged_2);
+            // 
+            // nov
+            // 
+            this.nov.AutoSize = true;
+            this.nov.Checked = true;
+            this.nov.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.nov.Location = new System.Drawing.Point(202, 78);
+            this.nov.Name = "nov";
+            this.nov.Size = new System.Drawing.Size(73, 17);
+            this.nov.TabIndex = 10;
+            this.nov.Text = "november";
+            this.nov.UseVisualStyleBackColor = true;
+            this.nov.CheckedChanged += new System.EventHandler(this.nov_CheckedChanged_2);
+            // 
+            // okt
+            // 
+            this.okt.AutoSize = true;
+            this.okt.Checked = true;
+            this.okt.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.okt.Location = new System.Drawing.Point(116, 78);
+            this.okt.Name = "okt";
+            this.okt.Size = new System.Drawing.Size(62, 17);
+            this.okt.TabIndex = 9;
+            this.okt.Text = "oktober";
+            this.okt.UseVisualStyleBackColor = true;
+            this.okt.CheckedChanged += new System.EventHandler(this.okt_CheckedChanged_2);
+            // 
+            // sep
+            // 
+            this.sep.AutoSize = true;
+            this.sep.Checked = true;
+            this.sep.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.sep.Location = new System.Drawing.Point(30, 78);
+            this.sep.Name = "sep";
+            this.sep.Size = new System.Drawing.Size(75, 17);
+            this.sep.TabIndex = 8;
+            this.sep.Text = "september";
+            this.sep.UseVisualStyleBackColor = true;
+            this.sep.CheckedChanged += new System.EventHandler(this.sep_CheckedChanged_2);
+            // 
+            // aug
+            // 
+            this.aug.AutoSize = true;
+            this.aug.Checked = true;
+            this.aug.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.aug.Location = new System.Drawing.Point(288, 54);
+            this.aug.Name = "aug";
+            this.aug.Size = new System.Drawing.Size(69, 17);
+            this.aug.TabIndex = 7;
+            this.aug.Text = "augustus";
+            this.aug.UseVisualStyleBackColor = true;
+            this.aug.CheckedChanged += new System.EventHandler(this.aug_CheckedChanged_2);
+            // 
+            // jul
+            // 
+            this.jul.AutoSize = true;
+            this.jul.Checked = true;
+            this.jul.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.jul.Location = new System.Drawing.Point(202, 54);
+            this.jul.Name = "jul";
+            this.jul.Size = new System.Drawing.Size(38, 17);
+            this.jul.TabIndex = 6;
+            this.jul.Text = "juli";
+            this.jul.UseVisualStyleBackColor = true;
+            this.jul.CheckedChanged += new System.EventHandler(this.jul_CheckedChanged_2);
+            // 
+            // jun
+            // 
+            this.jun.AutoSize = true;
+            this.jun.Checked = true;
+            this.jun.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.jun.Location = new System.Drawing.Point(116, 54);
+            this.jun.Name = "jun";
+            this.jun.Size = new System.Drawing.Size(42, 17);
+            this.jun.TabIndex = 5;
+            this.jun.Text = "juni";
+            this.jun.UseVisualStyleBackColor = true;
+            this.jun.CheckedChanged += new System.EventHandler(this.jun_CheckedChanged_2);
+            // 
+            // mei
+            // 
+            this.mei.AutoSize = true;
+            this.mei.Checked = true;
+            this.mei.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.mei.Location = new System.Drawing.Point(30, 54);
+            this.mei.Name = "mei";
+            this.mei.Size = new System.Drawing.Size(42, 17);
+            this.mei.TabIndex = 4;
+            this.mei.Text = "mei";
+            this.mei.UseVisualStyleBackColor = true;
+            this.mei.CheckedChanged += new System.EventHandler(this.mei_CheckedChanged_2);
+            // 
+            // apr
+            // 
+            this.apr.AutoSize = true;
+            this.apr.Checked = true;
+            this.apr.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.apr.Location = new System.Drawing.Point(288, 30);
+            this.apr.Name = "apr";
+            this.apr.Size = new System.Drawing.Size(45, 17);
+            this.apr.TabIndex = 3;
+            this.apr.Text = "april";
+            this.apr.UseVisualStyleBackColor = true;
+            this.apr.CheckedChanged += new System.EventHandler(this.apr_CheckedChanged_2);
+            // 
+            // mrt
+            // 
+            this.mrt.AutoSize = true;
+            this.mrt.Checked = true;
+            this.mrt.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.mrt.Location = new System.Drawing.Point(202, 30);
+            this.mrt.Name = "mrt";
+            this.mrt.Size = new System.Drawing.Size(52, 17);
+            this.mrt.TabIndex = 2;
+            this.mrt.Text = "maart";
+            this.mrt.UseVisualStyleBackColor = true;
+            this.mrt.CheckedChanged += new System.EventHandler(this.mrt_CheckedChanged_2);
+            // 
+            // feb
+            // 
+            this.feb.AutoSize = true;
+            this.feb.Checked = true;
+            this.feb.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.feb.Location = new System.Drawing.Point(116, 30);
+            this.feb.Name = "feb";
+            this.feb.Size = new System.Drawing.Size(61, 17);
+            this.feb.TabIndex = 1;
+            this.feb.Text = "februari";
+            this.feb.UseVisualStyleBackColor = true;
+            this.feb.CheckedChanged += new System.EventHandler(this.feb_CheckedChanged_2);
+            // 
+            // Jan
+            // 
+            this.Jan.AutoSize = true;
+            this.Jan.Checked = true;
+            this.Jan.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Jan.Location = new System.Drawing.Point(30, 30);
+            this.Jan.Name = "Jan";
+            this.Jan.Size = new System.Drawing.Size(57, 17);
+            this.Jan.TabIndex = 0;
+            this.Jan.Text = "januari";
+            this.Jan.UseVisualStyleBackColor = true;
+            this.Jan.CheckedChanged += new System.EventHandler(this.Jan_CheckedChanged_2);
+            // 
+            // WGSmaand
+            // 
+            this.WGSmaand.Controls.Add(this.dec);
+            this.WGSmaand.Controls.Add(this.nov);
+            this.WGSmaand.Controls.Add(this.okt);
+            this.WGSmaand.Controls.Add(this.sep);
+            this.WGSmaand.Controls.Add(this.aug);
+            this.WGSmaand.Controls.Add(this.jul);
+            this.WGSmaand.Controls.Add(this.jun);
+            this.WGSmaand.Controls.Add(this.mei);
+            this.WGSmaand.Controls.Add(this.apr);
+            this.WGSmaand.Controls.Add(this.mrt);
+            this.WGSmaand.Controls.Add(this.feb);
+            this.WGSmaand.Controls.Add(this.Jan);
+            this.WGSmaand.Location = new System.Drawing.Point(331, 545);
+            this.WGSmaand.Name = "WGSmaand";
+            this.WGSmaand.Size = new System.Drawing.Size(400, 130);
+            this.WGSmaand.TabIndex = 27;
+            this.WGSmaand.TabStop = false;
+            this.WGSmaand.Text = "Maand";
             // 
             // WGStitel
             // 
             this.WGStitel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WGStitel.Location = new System.Drawing.Point(70, 30);
+            this.WGStitel.Location = new System.Drawing.Point(61, 48);
             this.WGStitel.Name = "WGStitel";
             this.WGStitel.Size = new System.Drawing.Size(960, 44);
-            this.WGStitel.TabIndex = 23;
-            this.WGStitel.Text = "Windsnelheid en geboorte en sterfte";
+            this.WGStitel.TabIndex = 28;
+            this.WGStitel.Text = "Google stocks en neerslag";
             this.WGStitel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // WGSchart
+            // button2
             // 
-            chartArea1.Name = "ChartArea1";
-            this.WGSchart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.WGSchart.Legends.Add(legend1);
-            this.WGSchart.Location = new System.Drawing.Point(580, 150);
-            this.WGSchart.Name = "WGSchart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Windsnelheid";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Geboorte";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Sterfte";
-            this.WGSchart.Series.Add(series1);
-            this.WGSchart.Series.Add(series2);
-            this.WGSchart.Series.Add(series3);
-            this.WGSchart.Size = new System.Drawing.Size(490, 400);
-            this.WGSchart.TabIndex = 25;
-            this.WGSchart.Text = "Windsnelheid en geboorte en sterfte";
+            this.button2.Location = new System.Drawing.Point(751, 613);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(125, 25);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "Terug naar hoofdmenu";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button3_Click_1);
             // 
-            // Datavisualisatie3
+            // Datavisualisatie2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Data.Properties.Resources.Wolken_achtergrond;
-            this.ClientSize = new System.Drawing.Size(1114, 701);
+            this.ClientSize = new System.Drawing.Size(1064, 730);
             this.Controls.Add(this.WGSchart);
-            this.Controls.Add(this.WGSmaand);
             this.Controls.Add(this.WGSinleiding);
+            this.Controls.Add(this.WGSmaand);
             this.Controls.Add(this.WGStitel);
-            this.Controls.Add(this.button1);
-            this.Name = "Datavisualisatie3";
-            this.Text = "Datavisualisatie3";
+            this.Controls.Add(this.button2);
+            this.Name = "Datavisualisatie2";
+            this.Text = "Datavisualisatie2";
+            ((System.ComponentModel.ISupportInitialize)(this.WGSchart)).EndInit();
             this.WGSmaand.ResumeLayout(false);
             this.WGSmaand.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.WGSchart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,22 +299,22 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.GroupBox WGSmaand;
-        private System.Windows.Forms.CheckBox WGSdec;
-        private System.Windows.Forms.CheckBox WGSnov;
-        private System.Windows.Forms.CheckBox WGSokt;
-        private System.Windows.Forms.CheckBox WGSsep;
-        private System.Windows.Forms.CheckBox WGSaug;
-        private System.Windows.Forms.CheckBox WGSjul;
-        private System.Windows.Forms.CheckBox WGSjun;
-        private System.Windows.Forms.CheckBox WGSmei;
-        private System.Windows.Forms.CheckBox WGSapr;
-        private System.Windows.Forms.CheckBox WGSmrt;
-        private System.Windows.Forms.CheckBox WGSfeb;
-        private System.Windows.Forms.CheckBox WGSjan;
-        private System.Windows.Forms.TextBox WGSinleiding;
-        private System.Windows.Forms.TextBox WGStitel;
         private System.Windows.Forms.DataVisualization.Charting.Chart WGSchart;
+        private System.Windows.Forms.TextBox WGSinleiding;
+        private System.Windows.Forms.CheckBox dec;
+        private System.Windows.Forms.CheckBox nov;
+        private System.Windows.Forms.CheckBox okt;
+        private System.Windows.Forms.CheckBox sep;
+        private System.Windows.Forms.CheckBox aug;
+        private System.Windows.Forms.CheckBox jul;
+        private System.Windows.Forms.CheckBox jun;
+        private System.Windows.Forms.CheckBox mei;
+        private System.Windows.Forms.CheckBox apr;
+        private System.Windows.Forms.CheckBox mrt;
+        private System.Windows.Forms.CheckBox feb;
+        private System.Windows.Forms.CheckBox Jan;
+        private System.Windows.Forms.GroupBox WGSmaand;
+        private System.Windows.Forms.TextBox WGStitel;
+        private System.Windows.Forms.Button button2;
     }
 }
