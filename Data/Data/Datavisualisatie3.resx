@@ -117,10 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="WGSinleiding.Text" xml:space="preserve">
-    <value>In deze datavisualisatie wordt de gemiddelde windsnelheid vergeleken met het aantal geboorten en de sterftecijfers in het jaar 2011. Dit wordt als eerste weergeven over het gehele jaar, maar door op de onderstaande filters te drukken kunt U de grafieken voor een specifieke maand verwijderen.
-
- 
-</value>
-  </data>
 </root>
