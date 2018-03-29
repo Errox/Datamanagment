@@ -79,10 +79,10 @@ namespace Data
             // WGSinleiding
             // 
             this.WGSinleiding.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WGSinleiding.Location = new System.Drawing.Point(350, 60);
+            this.WGSinleiding.Location = new System.Drawing.Point(335, 60);
             this.WGSinleiding.Multiline = true;
             this.WGSinleiding.Name = "WGSinleiding";
-            this.WGSinleiding.Size = new System.Drawing.Size(480, 70);
+            this.WGSinleiding.Size = new System.Drawing.Size(500, 70);
             this.WGSinleiding.TabIndex = 34;
             this.WGSinleiding.Text = resources.GetString("WGSinleiding.Text");
             this.WGSinleiding.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

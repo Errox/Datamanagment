@@ -118,6 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="WGSinleiding.Text" xml:space="preserve">
-    <value>In deze datavisualisatie wordt de gemiddelde neerslag vergeleken met de gemiddelde verandering van de waarde van Google stocks. U kunt maanden wegfilteren door de onderstaande checkboxes weg te vinken. U kunt terug naar het hoofdmenu door op de knop rechtonderin het scherm te drukken.</value>
+    <value>In deze datavisualisatie wordt voor Nederland de gemiddelde neerslag vergeleken met de gemiddelde verandering van de waarde van Google stocks per maand. U kunt maanden wegfilteren door de onderstaande checkboxes weg te vinken. U kunt terug naar het hoofdmenu door op de knop rechtonderin te drukken.</value>
   </data>
 </root>
