@@ -146,13 +146,6 @@ namespace Data
                     WGSchart.Series["GestolenFietsen"].Points.AddXY($"{data.Maand}", data.FietsenDiefstal);
 
                 }
-<<<<<<< HEAD
-=======
-                else
-                {
-                    Console.WriteLine("Shouldn't be here but it still looks nice with a extra console line D: ");
-                }
->>>>>>> a3cea27e79a4e2d551ef202dc492534825fbb8f4
 
             }
 
