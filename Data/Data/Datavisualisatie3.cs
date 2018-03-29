@@ -16,7 +16,7 @@ namespace Data
 {
     public partial class Datavisualisatie3 : Form
     {
-        public static string filePath = "../weer.txt";
+        public static string filePath = "../../Resources/weer.txt";
         public List<Data> Maanden = new List<Data>();
 
         List<string> lines = File.ReadAllLines(filePath).ToList();
@@ -31,7 +31,6 @@ namespace Data
 
         public void LoadChart(bool first)
         {
-            //            var values = check_checkbox();
             WGSchart.Series.Clear();
             WGSchart.ResetAutoValues();
 
@@ -76,7 +75,6 @@ namespace Data
                     };
 
                     Maanden.Add(newMaand);
-                    Console.WriteLine(Maanden);
                 }
 
             }
@@ -157,6 +155,14 @@ namespace Data
                     WGSchart.Series["Sterfte"].Points.AddXY($"{data.Maand}", data.Sterfte);
                     WGSchart.Series["Geboorte"].Points.AddXY($"{data.Maand}", data.Geboorte);
                 }
+<<<<<<< HEAD
+=======
+                else
+                {
+                    Console.WriteLine("Shouldn't be here but it still looks nice with a extra console line D: ");
+                }
+
+>>>>>>> a3cea27e79a4e2d551ef202dc492534825fbb8f4
             }
 
             return;
