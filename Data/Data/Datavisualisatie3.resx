@@ -117,4 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="WGSinleiding.Text" xml:space="preserve">
+    <value>In deze datavisualisatie wordt de gemiddelde windsnelheid per maand in meter per uur vergeleken met de totale geboorte en sterfte per maand. U kunt maanden wegfilteren door de onderstaande checkboxes weg te vinken. U kunt terug naar het hoofdmenu door op de knop rechtonderin het scherm te drukken.</value>
+  </data>
 </root>

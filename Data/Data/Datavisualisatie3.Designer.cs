@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Datavisualisatie2));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Datavisualisatie3));
             this.WGSchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.WGSinleiding = new System.Windows.Forms.TextBox();
             this.WGSmaand = new System.Windows.Forms.GroupBox();
@@ -54,31 +54,52 @@
             // 
             // WGSchart
             // 
-            chartArea5.AxisX.LabelAutoFitMaxFontSize = 14;
-            chartArea5.AxisX.LabelAutoFitMinFontSize = 14;
-            chartArea5.AxisX2.LabelAutoFitMaxFontSize = 14;
-            chartArea5.AxisX2.LabelAutoFitMinFontSize = 14;
-            chartArea5.Name = "ChartArea1";
-            this.WGSchart.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.WGSchart.Legends.Add(legend5);
-            this.WGSchart.Location = new System.Drawing.Point(61, 171);
+            chartArea1.AxisX.LabelAutoFitMaxFontSize = 14;
+            chartArea1.AxisX.LabelAutoFitMinFontSize = 14;
+            chartArea1.AxisX2.LabelAutoFitMaxFontSize = 14;
+            chartArea1.AxisX2.LabelAutoFitMinFontSize = 14;
+            chartArea1.Name = "ChartArea1";
+            this.WGSchart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.WGSchart.Legends.Add(legend1);
+            this.WGSchart.Location = new System.Drawing.Point(105, 140);
             this.WGSchart.Name = "WGSchart";
             this.WGSchart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            this.WGSchart.Size = new System.Drawing.Size(960, 368);
+            this.WGSchart.Size = new System.Drawing.Size(960, 370);
             this.WGSchart.TabIndex = 12;
             this.WGSchart.Text = "Google stocks en Het weer";
-            
+            this.WGSchart.Click += new System.EventHandler(this.WGSchart_Click);
             // 
             // WGSinleiding
             // 
             this.WGSinleiding.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WGSinleiding.Location = new System.Drawing.Point(317, 98);
+            this.WGSinleiding.Location = new System.Drawing.Point(350, 60);
             this.WGSinleiding.Multiline = true;
             this.WGSinleiding.Name = "WGSinleiding";
-            this.WGSinleiding.Size = new System.Drawing.Size(470, 70);
+            this.WGSinleiding.Size = new System.Drawing.Size(480, 70);
             this.WGSinleiding.TabIndex = 29;
             this.WGSinleiding.Text = resources.GetString("WGSinleiding.Text");
+            // 
+            // WGSmaand
+            // 
+            this.WGSmaand.Controls.Add(this.dec);
+            this.WGSmaand.Controls.Add(this.nov);
+            this.WGSmaand.Controls.Add(this.okt);
+            this.WGSmaand.Controls.Add(this.sep);
+            this.WGSmaand.Controls.Add(this.aug);
+            this.WGSmaand.Controls.Add(this.jul);
+            this.WGSmaand.Controls.Add(this.jun);
+            this.WGSmaand.Controls.Add(this.mei);
+            this.WGSmaand.Controls.Add(this.apr);
+            this.WGSmaand.Controls.Add(this.mrt);
+            this.WGSmaand.Controls.Add(this.feb);
+            this.WGSmaand.Controls.Add(this.Jan);
+            this.WGSmaand.Location = new System.Drawing.Point(400, 520);
+            this.WGSmaand.Name = "WGSmaand";
+            this.WGSmaand.Size = new System.Drawing.Size(400, 130);
+            this.WGSmaand.TabIndex = 27;
+            this.WGSmaand.TabStop = false;
+            this.WGSmaand.Text = "Maand";
             // 
             // dec
             // 
@@ -236,40 +257,19 @@
             this.Jan.UseVisualStyleBackColor = true;
             this.Jan.CheckedChanged += new System.EventHandler(this.Jan_CheckedChanged_2);
             // 
-            // WGSmaand
-            // 
-            this.WGSmaand.Controls.Add(this.dec);
-            this.WGSmaand.Controls.Add(this.nov);
-            this.WGSmaand.Controls.Add(this.okt);
-            this.WGSmaand.Controls.Add(this.sep);
-            this.WGSmaand.Controls.Add(this.aug);
-            this.WGSmaand.Controls.Add(this.jul);
-            this.WGSmaand.Controls.Add(this.jun);
-            this.WGSmaand.Controls.Add(this.mei);
-            this.WGSmaand.Controls.Add(this.apr);
-            this.WGSmaand.Controls.Add(this.mrt);
-            this.WGSmaand.Controls.Add(this.feb);
-            this.WGSmaand.Controls.Add(this.Jan);
-            this.WGSmaand.Location = new System.Drawing.Point(331, 545);
-            this.WGSmaand.Name = "WGSmaand";
-            this.WGSmaand.Size = new System.Drawing.Size(400, 130);
-            this.WGSmaand.TabIndex = 27;
-            this.WGSmaand.TabStop = false;
-            this.WGSmaand.Text = "Maand";
-            // 
             // WGStitel
             // 
             this.WGStitel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WGStitel.Location = new System.Drawing.Point(61, 48);
+            this.WGStitel.Location = new System.Drawing.Point(105, 10);
             this.WGStitel.Name = "WGStitel";
             this.WGStitel.Size = new System.Drawing.Size(960, 44);
             this.WGStitel.TabIndex = 28;
-            this.WGStitel.Text = "Google stocks en neerslag";
+            this.WGStitel.Text = "Windsnelheid en geboorte en sterfte";
             this.WGStitel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(751, 613);
+            this.button2.Location = new System.Drawing.Point(860, 580);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(125, 25);
             this.button2.TabIndex = 26;
@@ -277,17 +277,18 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button3_Click_1);
             // 
-            // Datavisualisatie2
+            // Datavisualisatie3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1064, 730);
+            this.BackgroundImage = global::Data.Properties.Resources.Wolken_achtergrond;
+            this.ClientSize = new System.Drawing.Size(1184, 661);
             this.Controls.Add(this.WGSchart);
             this.Controls.Add(this.WGSinleiding);
             this.Controls.Add(this.WGSmaand);
             this.Controls.Add(this.WGStitel);
             this.Controls.Add(this.button2);
-            this.Name = "Datavisualisatie2";
+            this.Name = "Datavisualisatie3";
             this.Text = "Datavisualisatie2";
             ((System.ComponentModel.ISupportInitialize)(this.WGSchart)).EndInit();
             this.WGSmaand.ResumeLayout(false);

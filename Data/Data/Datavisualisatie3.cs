@@ -90,7 +90,6 @@ namespace Data
                     WGSchart.Series["Windsnelheid"].Points.AddXY($"{data.Maand}", data.Windsnelheid);
                     WGSchart.Series["Sterfte"].Points.AddXY($"{data.Maand}", data.Sterfte);
                     WGSchart.Series["Geboorte"].Points.AddXY($"{data.Maand}", data.Geboorte);
-                    Console.WriteLine("je moeder1");
                 }
                 else if (feb.Checked == true && data.Maand == "feb")
                 {
@@ -158,11 +157,6 @@ namespace Data
                     WGSchart.Series["Sterfte"].Points.AddXY($"{data.Maand}", data.Sterfte);
                     WGSchart.Series["Geboorte"].Points.AddXY($"{data.Maand}", data.Geboorte);
                 }
-                else
-                {
-                    Console.WriteLine("je moeder2");
-                }
-
             }
 
             return;
@@ -236,6 +230,11 @@ namespace Data
         }
 
         private void Datavisualisatie3_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void WGSchart_Click(object sender, EventArgs e)
         {
 
         }

@@ -81,7 +81,6 @@ namespace Data
                 {
                     WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
                     WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
-                    Console.WriteLine("je moeder");
                 }
                 else if (feb.Checked == true && data.Maand == "feb")
                 {
@@ -145,10 +144,6 @@ namespace Data
                     WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
                     WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
 
-                }
-                else
-                {
-                    Console.WriteLine("je moeder");
                 }
 
             }

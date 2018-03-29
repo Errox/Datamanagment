@@ -84,7 +84,6 @@ namespace Data
                 {
                     WGSchart.Series["MaxTemp"].Points.AddXY($"{data.Maand}", data.MaxTemp);
                     WGSchart.Series["GestolenFietsen"].Points.AddXY($"{data.Maand}", data.FietsenDiefstal);
-                    Console.WriteLine("je moeder");
                 }
                 else if (feb.Checked == true && data.Maand == "feb")
                 {
@@ -148,10 +147,6 @@ namespace Data
                     WGSchart.Series["MaxTemp"].Points.AddXY($"{data.Maand}", data.MaxTemp);
                     WGSchart.Series["GestolenFietsen"].Points.AddXY($"{data.Maand}", data.FietsenDiefstal);
 
-                }
-                else
-                {
-                    Console.WriteLine("je moeder");
                 }
 
             }
@@ -224,6 +219,11 @@ namespace Data
         private void nov_CheckedChanged_1(object sender, EventArgs e)
         {
             LoadChart(false);
+        }
+
+        private void WGSchart_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
