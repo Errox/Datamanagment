@@ -155,6 +155,11 @@ namespace Data
                     WGSchart.Series["Sterfte"].Points.AddXY($"{data.Maand}", data.Sterfte);
                     WGSchart.Series["Geboorte"].Points.AddXY($"{data.Maand}", data.Geboorte);
                 }
+                else
+                {
+                    Console.WriteLine("Shouldn't be here but it still looks nice with a extra console line D: ");
+                }
+                
             }
 
             return;

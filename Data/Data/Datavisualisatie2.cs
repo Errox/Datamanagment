@@ -142,6 +142,11 @@ namespace Data
                     WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
 
                 }
+                else
+                {
+                    Console.WriteLine("Shouldn't be here but it still looks nice with a extra console line D: ");
+                }
+
             }
 
             return;
