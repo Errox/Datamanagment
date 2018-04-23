@@ -35,12 +35,12 @@ namespace Data
             try
             {
                 cmd = connection.CreateCommand();
-                cmd.CommandText = "select Month(Date) Month, avg(Neerslag) as neerslag, max(max_temp) * 0.1 as max_temp, avg(windsnelheid) * 100 as windsnelheid from kmni group by Month(Date)";
+                cmd.CommandText = "select Month(Date), Levendgeborenen as Geboorte, Overledenen as Sterfte, avg(windsnelheid) * 100 as windsnelheid from School.kmni left join School.bevolking_per_maand on bevolking_per_maand.Perioden = kmni.Date group by Month(Date)";
                 MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
-                DataSet stocks = new DataSet();
-                adap.Fill(stocks);
+                DataSet geboorte = new DataSet();
+                adap.Fill(geboorte);
                 DataTable dt = new DataTable();
-                dt = stocks.Tables["knmi"];
+                dt = geboorte.Tables["knmi"];
 
                 foreach (DataRow dr in dt.Rows)
                 {
