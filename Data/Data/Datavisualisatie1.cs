@@ -65,7 +65,6 @@ namespace Data
             LoadChart(true);
         }
 
-
         public void LoadChart(bool first)
         {
             WGSchart.Series.Clear();
