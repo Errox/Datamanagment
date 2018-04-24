@@ -35,7 +35,7 @@ namespace Data
             try
             {
                 cmd = connection.CreateCommand();
-                cmd.CommandText = "select Month(Date), Levendgeborenen as Geboorte, Overledenen as Sterfte, avg(windsnelheid) * 100 as windsnelheid from School.kmni left join School.bevolking_per_maand on bevolking_per_maand.Perioden = kmni.Date group by Month(Date)";
+                cmd.CommandText = "select Month(Date) Date, Levendgeborenen as Geboorte, Overledenen as Sterfte, avg(windsnelheid) * 100 as Windsnelheid from School.kmni left join School.bevolking_per_maand on bevolking_per_maand.Perioden = kmni.Date group by Month(Date)";
                 MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
                 DataSet geboorte = new DataSet();
                 adap.Fill(geboorte);
