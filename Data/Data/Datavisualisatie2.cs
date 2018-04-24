@@ -1,13 +1,18 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
@@ -23,6 +28,40 @@ namespace Data
 
         public Datavisualisatie2()
         {
+            string MyConnectionString = "Server=localhost;Database=school;UID=root;PWD=root;PORT=3306;SslMode=none;";
+
+            MySqlConnection connection = new MySqlConnection(MyConnectionString);
+            MySqlCommand cmd;
+            connection.Open();
+
+            try
+            {
+                cmd = connection.CreateCommand();
+                cmd.CommandText = "select Month(Date) Month, avg(Neerslag) as neerslag, max(max_temp) * 0.1 as max_temp, avg(windsnelheid) * 100 as windsnelheid from kmni group by Month(Date)";
+                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                DataSet stocks = new DataSet();
+                adap.Fill(stocks);
+                DataTable dt = new DataTable();
+                dt = stocks.Tables["knmi"];
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    MessageBox.Show(dr["max_temp"].ToString());
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Clone();
+                }
+            }
+
             InitializeComponent();
             LoadChart(true);
         }

@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace Data
 {
@@ -24,6 +26,40 @@ namespace Data
 
         public Datavisualisatie3()
         {
+            string MyConnectionString = "Server=localhost;Database=school;UID=root;PWD=root;PORT=3306;SslMode=none;";
+
+            MySqlConnection connection = new MySqlConnection(MyConnectionString);
+            MySqlCommand cmd;
+            connection.Open();
+
+            try
+            {
+                cmd = connection.CreateCommand();
+                cmd.CommandText = "select Month(Date), Levendgeborenen as Geboorte, Overledenen as Sterfte, avg(windsnelheid) * 100 as windsnelheid from School.kmni left join School.bevolking_per_maand on bevolking_per_maand.Perioden = kmni.Date group by Month(Date)";
+                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                DataSet geboorte = new DataSet();
+                adap.Fill(geboorte);
+                DataTable dt = new DataTable();
+                dt = geboorte.Tables["knmi"];
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    MessageBox.Show(dr["max_temp"].ToString());
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Clone();
+                }
+            }
+
             InitializeComponent();
             LoadChart(true);
         }
