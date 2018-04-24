@@ -107,13 +107,13 @@ namespace Data
                     WGSchart.Series["Neerslag in mm"].Points.AddXY($"Februari", data.Neerslag);
                     WGSchart.Series["Google stock price in euro's"].Points.AddXY($"{data.Maand}", data.Stock);
                 }
-                else if (apr.Checked == true && data.Maand == "3")
+                else if (mrt.Checked == true && data.Maand == "3")
                 {
                     WGSchart.Series["Neerslag in mm"].Points.AddXY($"Maart", data.Neerslag);
                     WGSchart.Series["Google stock price in euro's"].Points.AddXY($"{data.Maand}", data.Stock);
 
                 }
-                else if (mrt.Checked == true && data.Maand == "4")
+                else if (apr.Checked == true && data.Maand == "4")
                 {
                     WGSchart.Series["Neerslag in mm"].Points.AddXY($"April", data.Neerslag);
                     WGSchart.Series["Google stock price in euro's"].Points.AddXY($"{data.Maand}", data.Stock);

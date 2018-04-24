@@ -18,49 +18,11 @@ namespace Data
 {
     public partial class Datavisualisatie1 : Form
     {
-     
 
-        public static string filePath = "../../Resources/weer.txt";
         public List<Data> Maanden = new List<Data>();
-
-        List<string> lines = File.ReadAllLines(filePath).ToList();
 
         public Datavisualisatie1()
         {
-            string MyConnectionString = "Server=localhost;Database=school;UID=root;PWD=root;PORT=3306;SslMode=none;";
-
-            MySqlConnection connection = new MySqlConnection(MyConnectionString);
-            MySqlCommand cmd;
-            connection.Open();
-
-            try
-            {
-                cmd = connection.CreateCommand();
-                cmd.CommandText = "select Month(Date) Month, avg(Neerslag) as neerslag, max(max_temp) * 0.1 as max_temp, avg(windsnelheid) * 100 as windsnelheid from kmni group by Month(Date)";
-                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
-                DataSet stocks = new DataSet();
-                adap.Fill(stocks);
-                DataTable dt = new DataTable();
-                dt = stocks.Tables["knmi"];
-
-                foreach (DataRow dr in dt.Rows)
-                {
-                    MessageBox.Show(dr["max_temp"].ToString());
-                }
-
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
-            finally
-            {
-                if (connection.State == ConnectionState.Open)
-                {
-                    connection.Clone();
-                }
-            }
-
             InitializeComponent();
             LoadChart(true);
         }
@@ -88,97 +50,118 @@ namespace Data
 
             if (first == true)
             {
-                foreach (var line in lines)
+                string MyConnectionString = "Server=localhost;Database=school;UID=homestead;PWD=secret;PORT=33060;SslMode=none;";
+
+                MySqlConnection connection = new MySqlConnection(MyConnectionString);
+                MySqlCommand cmd;
+                connection.Open();
+
+                try
                 {
-                    var entries = line.Split(';');
+                    cmd = connection.CreateCommand();
+                    cmd.CommandText = "Select Month(fietsen_diefstal.datum) Months, count(fietsen_diefstal.merk) as aantal, round(max(kmni.max_temp)) as max_temp from fietsen_diefstal join kmni on fietsen_diefstal.datum = kmni.Date group by Month(fietsen_diefstal.datum)";
+                    MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                    DataSet fietsen = new DataSet();
+                    adap.Fill(fietsen, "fietsen");
+                    DataTable dt = new DataTable();
+                    dt = fietsen.Tables["fietsen"]; //table exactly like sql table.
 
-
-                    var newMaand = new Data
+                    foreach (DataRow dr in dt.Rows)
                     {
-                        Maand = entries[0],
-                        Windsnelheid = entries[1],
-                        Sterfte = entries[2],
-                        Geboorte = entries[3],
-                        Neerslag = entries[4],
-                        Stock = entries[5],
-                        MaxTemp = entries[6],
-                        FietsenDiefstal = entries[7]
-                    };
+                        var newMaand = new Data
+                        {
+                            Maand = dr["Months"].ToString(),
+                            FietsenDiefstal = dr["aantal"].ToString(),
+                            MaxTemp = dr["max_temp"].ToString()
+                        };
 
-                    Maanden.Add(newMaand);
+                        Maanden.Add(newMaand);
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                finally
+                {
+                    if (connection.State == ConnectionState.Open)
+                    {
+                        connection.Clone();
+                    }
                 }
 
-            }
 
+            }
 
             foreach (var data in Maanden)
             {
 
-                if (Jan.Checked == true && data.Maand == "jan")
+                if (Jan.Checked == true && data.Maand == "1")
                 {
-                    WGSchart.Series["MaxTemp"].Points.AddXY($"{data.Maand}", data.MaxTemp);
+                    WGSchart.Series["MaxTemp"].Points.AddXY($"Januari", data.MaxTemp);
                     WGSchart.Series["GestolenFietsen"].Points.AddXY($"{data.Maand}", data.FietsenDiefstal);
                 }
-                else if (feb.Checked == true && data.Maand == "feb")
+                else if (feb.Checked == true && data.Maand == "2")
                 {
-                    WGSchart.Series["MaxTemp"].Points.AddXY($"{data.Maand}", data.MaxTemp);
+                    WGSchart.Series["MaxTemp"].Points.AddXY($"Februari", data.MaxTemp);
                     WGSchart.Series["GestolenFietsen"].Points.AddXY($"{data.Maand}", data.FietsenDiefstal);
                 }
-                else if (apr.Checked == true && data.Maand == "apr")
+                else if (apr.Checked == true && data.Maand == "4")
                 {
-                    WGSchart.Series["MaxTemp"].Points.AddXY($"{data.Maand}", data.MaxTemp);
-                    WGSchart.Series["GestolenFietsen"].Points.AddXY($"{data.Maand}", data.FietsenDiefstal);
-
-                }
-                else if (mrt.Checked == true && data.Maand == "mrt")
-                {
-                    WGSchart.Series["MaxTemp"].Points.AddXY($"{data.Maand}", data.MaxTemp);
+                    WGSchart.Series["MaxTemp"].Points.AddXY($"April", data.MaxTemp);
                     WGSchart.Series["GestolenFietsen"].Points.AddXY($"{data.Maand}", data.FietsenDiefstal);
 
                 }
-                else if (mei.Checked == true && data.Maand == "mei")
+                else if (mrt.Checked == true && data.Maand == "3")
                 {
-                    WGSchart.Series["MaxTemp"].Points.AddXY($"{data.Maand}", data.MaxTemp);
+                    WGSchart.Series["MaxTemp"].Points.AddXY($"Maart", data.MaxTemp);
                     WGSchart.Series["GestolenFietsen"].Points.AddXY($"{data.Maand}", data.FietsenDiefstal);
 
                 }
-                else if (jun.Checked == true && data.Maand == "jun")
+                else if (mei.Checked == true && data.Maand == "5")
                 {
-                    WGSchart.Series["MaxTemp"].Points.AddXY($"{data.Maand}", data.MaxTemp);
+                    WGSchart.Series["MaxTemp"].Points.AddXY($"Mei", data.MaxTemp);
                     WGSchart.Series["GestolenFietsen"].Points.AddXY($"{data.Maand}", data.FietsenDiefstal);
 
                 }
-                else if (jul.Checked == true && data.Maand == "jul")
+                else if (jun.Checked == true && data.Maand == "6")
                 {
-                    WGSchart.Series["MaxTemp"].Points.AddXY($"{data.Maand}", data.MaxTemp);
+                    WGSchart.Series["MaxTemp"].Points.AddXY($"Juni", data.MaxTemp);
                     WGSchart.Series["GestolenFietsen"].Points.AddXY($"{data.Maand}", data.FietsenDiefstal);
 
                 }
-                else if (aug.Checked == true && data.Maand == "aug")
+                else if (jul.Checked == true && data.Maand == "7")
                 {
-                    WGSchart.Series["MaxTemp"].Points.AddXY($"{data.Maand}", data.MaxTemp);
-                    WGSchart.Series["GestolenFietsen"].Points.AddXY($"{data.Maand}", data.FietsenDiefstal);
-                }
-                else if (sep.Checked == true && data.Maand == "sep")
-                {
-                    WGSchart.Series["MaxTemp"].Points.AddXY($"{data.Maand}", data.MaxTemp);
-                    WGSchart.Series["GestolenFietsen"].Points.AddXY($"{data.Maand}", data.FietsenDiefstal);
-                }
-                else if (okt.Checked == true && data.Maand == "okt")
-                {
-                    WGSchart.Series["MaxTemp"].Points.AddXY($"{data.Maand}", data.MaxTemp);
+                    WGSchart.Series["MaxTemp"].Points.AddXY($"Juli", data.MaxTemp);
                     WGSchart.Series["GestolenFietsen"].Points.AddXY($"{data.Maand}", data.FietsenDiefstal);
 
                 }
-                else if (nov.Checked == true && data.Maand == "nov")
+                else if (aug.Checked == true && data.Maand == "8")
                 {
-                    WGSchart.Series["MaxTemp"].Points.AddXY($"{data.Maand}", data.MaxTemp);
+                    WGSchart.Series["MaxTemp"].Points.AddXY($"Augustus", data.MaxTemp);
+                    WGSchart.Series["GestolenFietsen"].Points.AddXY($"{data.Maand}", data.FietsenDiefstal);
+                }
+                else if (sep.Checked == true && data.Maand == "9")
+                {
+                    WGSchart.Series["MaxTemp"].Points.AddXY($"September", data.MaxTemp);
+                    WGSchart.Series["GestolenFietsen"].Points.AddXY($"{data.Maand}", data.FietsenDiefstal);
+                }
+                else if (okt.Checked == true && data.Maand == "10")
+                {
+                    WGSchart.Series["MaxTemp"].Points.AddXY($"Oktober", data.MaxTemp);
                     WGSchart.Series["GestolenFietsen"].Points.AddXY($"{data.Maand}", data.FietsenDiefstal);
 
                 }
-                else if (dec.Checked == true && data.Maand == "dec")
+                else if (nov.Checked == true && data.Maand == "11")
                 {
-                    WGSchart.Series["MaxTemp"].Points.AddXY($"{data.Maand}", data.MaxTemp);
+                    WGSchart.Series["MaxTemp"].Points.AddXY($"November", data.MaxTemp);
+                    WGSchart.Series["GestolenFietsen"].Points.AddXY($"{data.Maand}", data.FietsenDiefstal);
+
+                }
+                else if (dec.Checked == true && data.Maand == "12")
+                {
+                    WGSchart.Series["MaxTemp"].Points.AddXY($"Decmeber", data.MaxTemp);
                     WGSchart.Series["GestolenFietsen"].Points.AddXY($"{data.Maand}", data.FietsenDiefstal);
 
                 }

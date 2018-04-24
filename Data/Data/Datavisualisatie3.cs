@@ -18,48 +18,10 @@ namespace Data
 {
     public partial class Datavisualisatie3 : Form
     {
-        public static string filePath = "../../Resources/weer.txt";
         public List<Data> Maanden = new List<Data>();
-
-        List<string> lines = File.ReadAllLines(filePath).ToList();
-
 
         public Datavisualisatie3()
         {
-            string MyConnectionString = "Server=localhost;Database=school;UID=root;PWD=root;PORT=3306;SslMode=none;";
-
-            MySqlConnection connection = new MySqlConnection(MyConnectionString);
-            MySqlCommand cmd;
-            connection.Open();
-
-            try
-            {
-                cmd = connection.CreateCommand();
-                cmd.CommandText = "select Month(Date) Date, Levendgeborenen as Geboorte, Overledenen as Sterfte, avg(windsnelheid) * 100 as Windsnelheid from School.kmni left join School.bevolking_per_maand on bevolking_per_maand.Perioden = kmni.Date group by Month(Date)";
-                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
-                DataSet geboorte = new DataSet();
-                adap.Fill(geboorte);
-                DataTable dt = new DataTable();
-                dt = geboorte.Tables["knmi"];
-
-                foreach (DataRow dr in dt.Rows)
-                {
-                    MessageBox.Show(dr["max_temp"].ToString());
-                }
-
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
-            finally
-            {
-                if (connection.State == ConnectionState.Open)
-                {
-                    connection.Clone();
-                }
-            }
-
             InitializeComponent();
             LoadChart(true);
         }
@@ -91,109 +53,133 @@ namespace Data
             WGSchart.Series.Add(series3);
             WGSchart.ChartAreas[0].AxisX.Interval = 1;
 
+
             if (first == true)
             {
-                foreach (var line in lines)
+
+                string MyConnectionString = "Server=localhost;Database=school;UID=homestead;PWD=secret;PORT=33060;SslMode=none;";
+
+                MySqlConnection connection = new MySqlConnection(MyConnectionString);
+                MySqlCommand cmd;
+                connection.Open();
+
+                try
                 {
-                    var entries = line.Split(';');
+                    cmd = connection.CreateCommand();
+                    cmd.CommandText = "Select Month(Bevolking_per_maand.Perioden) Months, avg(Bevolking_per_maand.Levendgeborenen) as Geboren, avg(Bevolking_per_maand.Overledenen) as Overledenen, round(avg(kmni.windsnelheid)) * 100 as Windsnelheid from Bevolking_per_maand join kmni on Bevolking_per_maand.Perioden = kmni.Date group by Month(Bevolking_per_maand.Perioden)";
+                    MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                    DataSet geboorte = new DataSet();
+                    adap.Fill(geboorte, "geboorte");
+                    DataTable dt = new DataTable();
+                    dt = geboorte.Tables["geboorte"];
 
-
-                    var newMaand = new Data
+                    foreach (DataRow dr in dt.Rows)
                     {
-                        Maand = entries[0],
-                        Windsnelheid = entries[1],
-                        Sterfte = entries[2],
-                        Geboorte = entries[3],
-                        Neerslag = entries[4],
-                        Stock = entries[5],
-                        MaxTemp = entries[6],
-                        FietsenDiefstal = entries[7]
-                    };
 
-                    Maanden.Add(newMaand);
+                        var newMaand = new Data
+                        {
+                            Maand = dr["Months"].ToString(),
+                            Geboorte = dr["Geboren"].ToString(),
+                            Sterfte = dr["Overledenen"].ToString(),
+                            Windsnelheid = dr["Windsnelheid"].ToString()
+                        };
+
+                        Maanden.Add(newMaand);
+                    }
+
                 }
-
+                catch (Exception e)
+                {
+                    throw;
+                }
+                finally
+                {
+                    if (connection.State == ConnectionState.Open)
+                    {
+                        connection.Clone();
+                    }
+                }
             }
 
 
             foreach (var data in Maanden)
             {
 
-                if (Jan.Checked == true && data.Maand == "jan")
+                if (Jan.Checked == true && data.Maand == "1")
                 {
-                    WGSchart.Series["Windsnelheid"].Points.AddXY($"{data.Maand}", data.Windsnelheid);
-                    WGSchart.Series["Sterfte"].Points.AddXY($"{data.Maand}", data.Sterfte);
-                    WGSchart.Series["Geboorte"].Points.AddXY($"{data.Maand}", data.Geboorte);
+                    WGSchart.Series["Windsnelheid"].Points.AddXY($"Januari", data.Windsnelheid);
+                    WGSchart.Series["Sterfte"].Points.AddXY($"Januari", data.Sterfte);
+                    WGSchart.Series["Geboorte"].Points.AddXY($"Januari", data.Geboorte);
                 }
-                else if (feb.Checked == true && data.Maand == "feb")
+                else if (feb.Checked == true && data.Maand == "2")
                 {
-                    WGSchart.Series["Windsnelheid"].Points.AddXY($"{data.Maand}", data.Windsnelheid);
-                    WGSchart.Series["Sterfte"].Points.AddXY($"{data.Maand}", data.Sterfte);
-                    WGSchart.Series["Geboorte"].Points.AddXY($"{data.Maand}", data.Geboorte);
+                    WGSchart.Series["Windsnelheid"].Points.AddXY($"Februari", data.Windsnelheid);
+                    WGSchart.Series["Sterfte"].Points.AddXY($"Februari", data.Sterfte);
+                    WGSchart.Series["Geboorte"].Points.AddXY($"Februari", data.Geboorte);
                 }
-                else if (apr.Checked == true && data.Maand == "apr")
+                else if (mrt.Checked == true && data.Maand == "3")
                 {
-                    WGSchart.Series["Windsnelheid"].Points.AddXY($"{data.Maand}", data.Windsnelheid);
-                    WGSchart.Series["Sterfte"].Points.AddXY($"{data.Maand}", data.Sterfte);
-                    WGSchart.Series["Geboorte"].Points.AddXY($"{data.Maand}", data.Geboorte);
+                    WGSchart.Series["Windsnelheid"].Points.AddXY($"Maart", data.Windsnelheid);
+                    WGSchart.Series["Sterfte"].Points.AddXY($"Maart", data.Sterfte);
+                    WGSchart.Series["Geboorte"].Points.AddXY($"Maart", data.Geboorte);
                 }
-                else if (mrt.Checked == true && data.Maand == "mrt")
+                else if (apr.Checked == true && data.Maand == "4")
                 {
-                    WGSchart.Series["Windsnelheid"].Points.AddXY($"{data.Maand}", data.Windsnelheid);
-                    WGSchart.Series["Sterfte"].Points.AddXY($"{data.Maand}", data.Sterfte);
-                    WGSchart.Series["Geboorte"].Points.AddXY($"{data.Maand}", data.Geboorte);
+                    WGSchart.Series["Windsnelheid"].Points.AddXY($"April", data.Windsnelheid);
+                    WGSchart.Series["Sterfte"].Points.AddXY($"April", data.Sterfte);
+                    WGSchart.Series["Geboorte"].Points.AddXY($"April", data.Geboorte);
                 }
-                else if (mei.Checked == true && data.Maand == "mei")
+                else if (mei.Checked == true && data.Maand == "5")
                 {
-                    WGSchart.Series["Windsnelheid"].Points.AddXY($"{data.Maand}", data.Windsnelheid);
-                    WGSchart.Series["Sterfte"].Points.AddXY($"{data.Maand}", data.Sterfte);
-                    WGSchart.Series["Geboorte"].Points.AddXY($"{data.Maand}", data.Geboorte);
+                    WGSchart.Series["Windsnelheid"].Points.AddXY($"Mei", data.Windsnelheid);
+                    WGSchart.Series["Sterfte"].Points.AddXY($"Mei", data.Sterfte);
+                    WGSchart.Series["Geboorte"].Points.AddXY($"Mei", data.Geboorte);
                 }
-                else if (jun.Checked == true && data.Maand == "jun")
+                else if (jun.Checked == true && data.Maand == "6")
                 {
-                    WGSchart.Series["Windsnelheid"].Points.AddXY($"{data.Maand}", data.Windsnelheid);
-                    WGSchart.Series["Sterfte"].Points.AddXY($"{data.Maand}", data.Sterfte);
-                    WGSchart.Series["Geboorte"].Points.AddXY($"{data.Maand}", data.Geboorte);
+                    WGSchart.Series["Windsnelheid"].Points.AddXY($"Juni", data.Windsnelheid);
+                    WGSchart.Series["Sterfte"].Points.AddXY($"Juni", data.Sterfte);
+                    WGSchart.Series["Geboorte"].Points.AddXY($"Juni", data.Geboorte);
                 }
-                else if (jul.Checked == true && data.Maand == "jul")
+                else if (jul.Checked == true && data.Maand == "7")
                 {
-                    WGSchart.Series["Windsnelheid"].Points.AddXY($"{data.Maand}", data.Windsnelheid);
-                    WGSchart.Series["Sterfte"].Points.AddXY($"{data.Maand}", data.Sterfte);
-                    WGSchart.Series["Geboorte"].Points.AddXY($"{data.Maand}", data.Geboorte);
+                    WGSchart.Series["Windsnelheid"].Points.AddXY($"Juli", data.Windsnelheid);
+                    WGSchart.Series["Sterfte"].Points.AddXY($"Juli", data.Sterfte);
+                    WGSchart.Series["Geboorte"].Points.AddXY($"Juli", data.Geboorte);
                 }
-                else if (aug.Checked == true && data.Maand == "aug")
+                else if (aug.Checked == true && data.Maand == "8")
                 {
-                    WGSchart.Series["Windsnelheid"].Points.AddXY($"{data.Maand}", data.Windsnelheid);
-                    WGSchart.Series["Sterfte"].Points.AddXY($"{data.Maand}", data.Sterfte);
-                    WGSchart.Series["Geboorte"].Points.AddXY($"{data.Maand}", data.Geboorte);
+                    WGSchart.Series["Windsnelheid"].Points.AddXY($"Augustus", data.Windsnelheid);
+                    WGSchart.Series["Sterfte"].Points.AddXY($"Augustus", data.Sterfte);
+                    WGSchart.Series["Geboorte"].Points.AddXY($"Augustus", data.Geboorte);
                 }
-                else if (sep.Checked == true && data.Maand == "sep")
+                else if (sep.Checked == true && data.Maand == "9")
                 {
-                    WGSchart.Series["Windsnelheid"].Points.AddXY($"{data.Maand}", data.Windsnelheid);
-                    WGSchart.Series["Sterfte"].Points.AddXY($"{data.Maand}", data.Sterfte);
-                    WGSchart.Series["Geboorte"].Points.AddXY($"{data.Maand}", data.Geboorte);
+                    WGSchart.Series["Windsnelheid"].Points.AddXY($"September", data.Windsnelheid);
+                    WGSchart.Series["Sterfte"].Points.AddXY($"September", data.Sterfte);
+                    WGSchart.Series["Geboorte"].Points.AddXY($"September", data.Geboorte);
                 }
-                else if (okt.Checked == true && data.Maand == "okt")
+                else if (okt.Checked == true && data.Maand == "10")
                 {
-                    WGSchart.Series["Windsnelheid"].Points.AddXY($"{data.Maand}", data.Windsnelheid);
-                    WGSchart.Series["Sterfte"].Points.AddXY($"{data.Maand}", data.Sterfte);
-                    WGSchart.Series["Geboorte"].Points.AddXY($"{data.Maand}", data.Geboorte);
+                    WGSchart.Series["Windsnelheid"].Points.AddXY($"October", data.Windsnelheid);
+                    WGSchart.Series["Sterfte"].Points.AddXY($"October", data.Sterfte);
+                    WGSchart.Series["Geboorte"].Points.AddXY($"October", data.Geboorte);
                 }
-                else if (nov.Checked == true && data.Maand == "nov")
+                else if (nov.Checked == true && data.Maand == "11")
                 {
-                    WGSchart.Series["Windsnelheid"].Points.AddXY($"{data.Maand}", data.Windsnelheid);
-                    WGSchart.Series["Sterfte"].Points.AddXY($"{data.Maand}", data.Sterfte);
-                    WGSchart.Series["Geboorte"].Points.AddXY($"{data.Maand}", data.Geboorte);
+                    WGSchart.Series["Windsnelheid"].Points.AddXY($"November", data.Windsnelheid);
+                    WGSchart.Series["Sterfte"].Points.AddXY($"November", data.Sterfte);
+                    WGSchart.Series["Geboorte"].Points.AddXY($"November", data.Geboorte);
                 }
-                else if (dec.Checked == true && data.Maand == "dec")
+                else if (dec.Checked == true && data.Maand == "12")
                 {
-                    WGSchart.Series["Windsnelheid"].Points.AddXY($"{data.Maand}", data.Windsnelheid);
-                    WGSchart.Series["Sterfte"].Points.AddXY($"{data.Maand}", data.Sterfte);
-                    WGSchart.Series["Geboorte"].Points.AddXY($"{data.Maand}", data.Geboorte);
+                    WGSchart.Series["Windsnelheid"].Points.AddXY($"December", data.Windsnelheid);
+                    WGSchart.Series["Sterfte"].Points.AddXY($"December", data.Sterfte);
+                    WGSchart.Series["Geboorte"].Points.AddXY($"December", data.Geboorte);
                 }
                 else
                 {
-                    Console.WriteLine("Shouldn't be here but it still looks nice with a extra console line D: ");
+                    Console.WriteLine("log_1 ");
                 }
                 
             }
