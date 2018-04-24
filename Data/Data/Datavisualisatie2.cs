@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 namespace Data
 {
     public partial class Datavisualisatie2 : Form
@@ -36,11 +38,11 @@ namespace Data
             }
             var series1 = new System.Windows.Forms.DataVisualization.Charting.Series
             {
-                Name = "Neerslag"
+                Name = "Neerslag in mm"
             };
             var series2 = new System.Windows.Forms.DataVisualization.Charting.Series
             {
-                Name = "Google stock price"
+                Name = "Google stock price in euro's"
             };
             WGSchart.Series.Add(series1);
             WGSchart.Series.Add(series2);
@@ -48,24 +50,46 @@ namespace Data
 
             if (first == true)
             {
-                foreach (var line in lines)
+
+                string MyConnectionString = "Server=localhost;Database=school;UID=homestead;PWD=secret;PORT=33060;SslMode=none;";
+
+                MySqlConnection connection = new MySqlConnection(MyConnectionString);
+                MySqlCommand cmd;
+                connection.Open();
+
+                try
                 {
-                    var entries = line.Split(';');
+                    cmd = connection.CreateCommand();
+                    cmd.CommandText = "Select Month(stocks.Date) Months, round(avg(stocks.Open)) as stock_price, round(avg(kmni.neerslag)) as neerslag from stocks join kmni on stocks.Date = kmni.Date group by Month(stocks.Date)";
+                    MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                    DataSet stocks = new DataSet();
+                    adap.Fill(stocks, "stocks");
+                    DataTable dt = new DataTable();
+                    dt = stocks.Tables["stocks"]; //table exactly like sql table.
 
-
-                    var newMaand = new Data
+                    foreach (DataRow dr in dt.Rows)
                     {
-                        Maand = entries[0],
-                        Windsnelheid = entries[1],
-                        Sterfte = entries[2],
-                        Geboorte = entries[3],
-                        Neerslag = entries[4],
-                        Stock = entries[5],
-                        MaxTemp = entries[6],
-                        FietsenDiefstal = entries[7]
-                    };
+                        var newMaand = new Data
+                        {
+                            Maand = dr["Months"].ToString(),
+                            Neerslag = dr["neerslag"].ToString(),
+                            Stock = dr["stock_price"].ToString()
+                        };
 
-                    Maanden.Add(newMaand);
+                        Maanden.Add(newMaand);
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                finally
+                {
+                    if (connection.State == ConnectionState.Open)
+                    {
+                        connection.Clone();
+                    }
                 }
 
             }
@@ -74,72 +98,72 @@ namespace Data
             foreach (var data in Maanden)
             {
 
-                if (Jan.Checked == true && data.Maand == "jan")
+                if (Jan.Checked == true && data.Maand == "1")
                 {
-                    WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
-                    WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
+                    WGSchart.Series["Neerslag in mm"].Points.AddXY($"Januari", data.Neerslag);
+                    WGSchart.Series["Google stock price in euro's"].Points.AddXY($"{data.Maand}", data.Stock);
                 }
-                else if (feb.Checked == true && data.Maand == "feb")
+                else if (feb.Checked == true && data.Maand == "2")
                 {
-                    WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
-                    WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
+                    WGSchart.Series["Neerslag in mm"].Points.AddXY($"Februari", data.Neerslag);
+                    WGSchart.Series["Google stock price in euro's"].Points.AddXY($"{data.Maand}", data.Stock);
                 }
-                else if (apr.Checked == true && data.Maand == "apr")
+                else if (apr.Checked == true && data.Maand == "3")
                 {
-                    WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
-                    WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
+                    WGSchart.Series["Neerslag in mm"].Points.AddXY($"Maart", data.Neerslag);
+                    WGSchart.Series["Google stock price in euro's"].Points.AddXY($"{data.Maand}", data.Stock);
 
                 }
-                else if (mrt.Checked == true && data.Maand == "mrt")
+                else if (mrt.Checked == true && data.Maand == "4")
                 {
-                    WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
-                    WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
+                    WGSchart.Series["Neerslag in mm"].Points.AddXY($"April", data.Neerslag);
+                    WGSchart.Series["Google stock price in euro's"].Points.AddXY($"{data.Maand}", data.Stock);
 
                 }
-                else if (mei.Checked == true && data.Maand == "mei")
+                else if (mei.Checked == true && data.Maand == "5")
                 {
-                    WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
-                    WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
+                    WGSchart.Series["Neerslag in mm"].Points.AddXY($"Mei", data.Neerslag);
+                    WGSchart.Series["Google stock price in euro's"].Points.AddXY($"{data.Maand}", data.Stock);
 
                 }
-                else if (jun.Checked == true && data.Maand == "jun")
+                else if (jun.Checked == true && data.Maand == "6")
                 {
-                    WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
-                    WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
+                    WGSchart.Series["Neerslag in mm"].Points.AddXY($"Juni", data.Neerslag);
+                    WGSchart.Series["Google stock price in euro's"].Points.AddXY($"{data.Maand}", data.Stock);
 
                 }
-                else if (jul.Checked == true && data.Maand == "jul")
+                else if (jul.Checked == true && data.Maand == "7")
                 {
-                    WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
-                    WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
+                    WGSchart.Series["Neerslag in mm"].Points.AddXY($"Juli", data.Neerslag);
+                    WGSchart.Series["Google stock price in euro's"].Points.AddXY($"{data.Maand}", data.Stock);
 
                 }
-                else if (aug.Checked == true && data.Maand == "aug")
+                else if (aug.Checked == true && data.Maand == "8")
                 {
-                    WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
-                    WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
+                    WGSchart.Series["Neerslag in mm"].Points.AddXY($"Augustus", data.Neerslag);
+                    WGSchart.Series["Google stock price in euro's"].Points.AddXY($"{data.Maand}", data.Stock);
                 }
-                else if (sep.Checked == true && data.Maand == "sep")
+                else if (sep.Checked == true && data.Maand == "9")
                 {
-                    WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
-                    WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
+                    WGSchart.Series["Neerslag in mm"].Points.AddXY($"September", data.Neerslag);
+                    WGSchart.Series["Google stock price in euro's"].Points.AddXY($"{data.Maand}", data.Stock);
                 }
-                else if (okt.Checked == true && data.Maand == "okt")
+                else if (okt.Checked == true && data.Maand == "10")
                 {
-                    WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
-                    WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
+                    WGSchart.Series["Neerslag in mm"].Points.AddXY($"October", data.Neerslag);
+                    WGSchart.Series["Google stock price in euro's"].Points.AddXY($"{data.Maand}", data.Stock);
 
                 }
-                else if (nov.Checked == true && data.Maand == "nov")
+                else if (nov.Checked == true && data.Maand == "11")
                 {
-                    WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
-                    WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
+                    WGSchart.Series["Neerslag in mm"].Points.AddXY($"November", data.Neerslag);
+                    WGSchart.Series["Google stock price in euro's"].Points.AddXY($"{data.Maand}", data.Stock);
 
                 }
-                else if (dec.Checked == true && data.Maand == "dec")
+                else if (dec.Checked == true && data.Maand == "12")
                 {
-                    WGSchart.Series["Neerslag"].Points.AddXY($"{data.Maand}", data.Neerslag);
-                    WGSchart.Series["Google stock price"].Points.AddXY($"{data.Maand}", data.Stock);
+                    WGSchart.Series["Neerslag in mm"].Points.AddXY($"December", data.Neerslag);
+                    WGSchart.Series["Google stock price in euro's"].Points.AddXY($"{data.Maand}", data.Stock);
 
                 }
                 else
